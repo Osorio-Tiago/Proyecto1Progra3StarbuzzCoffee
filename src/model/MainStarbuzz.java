@@ -7,14 +7,14 @@ public class MainStarbuzz {
 
 	public static void main(String[] args) {
 		
+		System.out.println("Test");
 		User usuario = new User();
-
 		viewLogin view = new viewLogin();
 		Login log = new Login();
 		controlLogin controlLogin = new controlLogin(usuario, log, view);
 		controlLogin.start();
 		view.frmLogin.setVisible(true);
-
+		
 	}
 
 }
