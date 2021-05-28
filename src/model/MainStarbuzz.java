@@ -7,7 +7,7 @@ public class MainStarbuzz {
 
 	public static void main(String[] args) {
 		
-		System.out.println("Test");
+		System.out.println("Test 2");
 		User usuario = new User();
 		viewLogin view = new viewLogin();
 		Login log = new Login();
