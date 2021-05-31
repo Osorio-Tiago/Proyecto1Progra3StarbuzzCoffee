@@ -3,6 +3,8 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JOptionPane;
+
 import model.Login;
 import model.User;
 import model.UserDAOImp;
@@ -42,11 +44,13 @@ public class controlLogin implements ActionListener {
 			viewLogin.frmLogin.setVisible(false);
 
 			controlUsers controlUsers = new controlUsers(modeloLogin, crud, viewUsers);
+			 JOptionPane.showMessageDialog(null,"logging in...", "Successful!", JOptionPane.INFORMATION_MESSAGE);
 			controlUsers.start();
 			System.out.println("You have successfully log");
 			viewUsers.frmUsers.setVisible(true);
 
 		} else {
+			 JOptionPane.showMessageDialog(null,"Wrong username or password", "Login failed", JOptionPane.ERROR_MESSAGE);
 			System.out.println("ERROR LOG");
 		}
 
