@@ -20,6 +20,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 import java.awt.Cursor;
+import javax.swing.JTextPane;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class viewLogin {
 
@@ -34,7 +37,6 @@ public class viewLogin {
 	 */
 	public viewLogin() {
 		initialize();
-		textUser.setFocusable(true);
 	}
 
 	/**
@@ -50,10 +52,13 @@ public class viewLogin {
 		frmLogin.getContentPane().setLayout(null);
 		
 		textUser = new JTextField();
+		textUser.addKeyListener(new KeyAdapter() {
+			public void keyPressed(KeyEvent e) {
+			}
+		});
 		textUser.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent e) {
-				
 				if(textUser.getText().trim().toLowerCase().equals("username")) {
 				  textUser.setText("");
 				  textUser.setForeground(Color.black);
@@ -70,29 +75,33 @@ public class viewLogin {
 		textUser.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		textUser.setForeground(Color.GRAY);
 		textUser.setText("username");
-		textUser.setBounds(139, 174, 190, 34);
+		textUser.setBounds(139, 161, 190, 34);
 		frmLogin.getContentPane().add(textUser);
 		textUser.setColumns(10);
 		
 		JLabel lbUser = new JLabel();
 		lbUser.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		lbUser.setBounds(21, 174, 92, 54);
+		lbUser.setBounds(26, 147, 61, 54);
 		frmLogin.getContentPane().add(lbUser);
 		
-		ImageIcon imgUser = new ImageIcon(getClass().getResource("/img/Sample_User_Icon.png")); 
+		ImageIcon imgUser = new ImageIcon(getClass().getResource("/img/iconUser.png")); 
 	    Icon fondoUser = new ImageIcon( imgUser.getImage().getScaledInstance(lbUser.getWidth(),lbUser.getHeight(), Image.SCALE_DEFAULT)); 
 	    lbUser.setIcon(fondoUser);
 		
 		JLabel lbPassword = new JLabel();
 		lbPassword.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		lbPassword.setBounds(31, 286, 82, 54);
+		lbPassword.setBounds(26, 255, 61, 54);
 		frmLogin.getContentPane().add(lbPassword);
 		
-		ImageIcon impPass = new ImageIcon(getClass().getResource("/img/LockIconReduct (1).png")); 
+		ImageIcon impPass = new ImageIcon(getClass().getResource("/img/iconLock.png")); 
 	    Icon fondoPass = new ImageIcon( impPass.getImage().getScaledInstance(lbPassword.getWidth(),lbPassword.getHeight(), Image.SCALE_DEFAULT)); 
 	    lbPassword.setIcon(fondoPass);
 		
 		textPassword = new JPasswordField();
+		textPassword.addKeyListener(new KeyAdapter() {
+			public void keyPressed(KeyEvent e) {
+			}
+		});
 		textPassword.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusGained(FocusEvent e) {
@@ -113,7 +122,7 @@ public class viewLogin {
 		textPassword.setForeground(Color.GRAY);
 		textPassword.setText("password");
 		textPassword.setColumns(10);
-		textPassword.setBounds(139, 286, 190, 34);
+		textPassword.setBounds(139, 275, 190, 34);
 		frmLogin.getContentPane().add(textPassword);
 		
 		btnLogin = new JButton("Login");
@@ -138,5 +147,10 @@ public class viewLogin {
 		ImageIcon imagen1 = new ImageIcon(getClass().getResource("/img/starbuzzLogoSlogan.png")); 
 	    Icon fondo1 = new ImageIcon( imagen1.getImage().getScaledInstance(lblIcon.getWidth(),lblIcon.getHeight(), Image.SCALE_DEFAULT)); 
 	    lblIcon.setIcon(fondo1);
+	    
+	    JTextPane NO_TOCAR = new JTextPane();
+	    NO_TOCAR.setEditable(false);
+	    NO_TOCAR.setBounds(20, 24, 24, 29);
+	    panelIcon.add(NO_TOCAR);
 	}
 }

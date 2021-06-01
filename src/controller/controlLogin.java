@@ -1,9 +1,15 @@
 package controller;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.KeyAdapter;
 
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 import model.Login;
 import model.User;
@@ -11,7 +17,7 @@ import model.UserDAOImp;
 import view.viewLogin;
 import view.viewUsers;
 
-public class controlLogin implements ActionListener {
+public class controlLogin implements ActionListener, KeyListener{
 
 	private User modeloLogin;
 	private Login log;
@@ -26,7 +32,8 @@ public class controlLogin implements ActionListener {
 		this.log = log;
 		this.viewLogin = view;
 		this.viewLogin.btnLogin.addActionListener(this);
-
+		this.viewLogin.textUser.addKeyListener(this);
+		this.viewLogin.textPassword.addKeyListener(this);
 	}
 
 	public void start() {
@@ -61,7 +68,28 @@ public class controlLogin implements ActionListener {
 		if (e.getSource() == viewLogin.btnLogin) {
 			queryLogin();
 		}
+	}
 
+	@Override
+	public void keyPressed(KeyEvent e) {
+		// TODO Auto-generated method stub
+		  Character key= e.getKeyChar();
+	        if(key.equals('\n'))
+	        {
+	        	queryLogin();
+	        }
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
