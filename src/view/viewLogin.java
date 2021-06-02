@@ -23,6 +23,7 @@ import java.awt.Cursor;
 import javax.swing.JTextPane;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.Toolkit;
 
 public class viewLogin {
 
@@ -44,6 +45,7 @@ public class viewLogin {
 	 */
 	public void initialize() {
 		frmLogin = new JFrame();
+		frmLogin.setIconImage(Toolkit.getDefaultToolkit().getImage(viewLogin.class.getResource("/img/coffee-cup.png")));
 		frmLogin.getContentPane().setBackground(Color.decode("#ec5353"));
 		frmLogin.setResizable(false);
 		frmLogin.setTitle("Login");
