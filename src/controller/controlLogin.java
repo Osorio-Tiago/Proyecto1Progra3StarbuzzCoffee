@@ -22,12 +22,10 @@ public class controlLogin implements ActionListener, KeyListener{
 	private User modeloLogin;
 	private Login log;
 	private viewLogin viewLogin;
-
-	private final ControlMenu menuController = new ControlMenu();
 	UserDAOImp crud = new UserDAOImp();
 	viewUsers viewUsers = new viewUsers();
 	
-
+	
 	public controlLogin(User modelo, Login log, viewLogin view) {
 
 		this.modeloLogin = modelo;
@@ -51,15 +49,13 @@ public class controlLogin implements ActionListener, KeyListener{
 		if (log.query(modeloLogin)) {
 
 			viewLogin.frmLogin.setVisible(false);
-
 			controlUsers controlUsers = new controlUsers(modeloLogin, crud, viewUsers);
-			 JOptionPane.showMessageDialog(null,"logging in...", "Successful!", JOptionPane.INFORMATION_MESSAGE);
-			controlUsers.start();
+			ControlMenu menu = ControlMenu.getControlMenu();
+			menu.setcontrolUsers(controlUsers);	
+		    JOptionPane.showMessageDialog(null,"logging in...", "Successful!", JOptionPane.INFORMATION_MESSAGE);
 			System.out.println("You have successfully log");
-			viewUsers.frmUsers.setVisible(true);
-			menuController.StartApplication();
+			menu.StartApplication();
 			
-
 		} else {
 			 JOptionPane.showMessageDialog(null,"Wrong username or password", "Login failed", JOptionPane.ERROR_MESSAGE);
 			System.out.println("ERROR LOG");
