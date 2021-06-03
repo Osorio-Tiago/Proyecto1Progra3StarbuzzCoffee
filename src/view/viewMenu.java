@@ -1,7 +1,5 @@
 package view;
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import java.awt.Toolkit;
 import javax.swing.JButton;
@@ -10,25 +8,30 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 import javax.swing.UIManager;
-import javax.swing.border.EtchedBorder;
-import javax.swing.border.BevelBorder;
-import javax.swing.border.MatteBorder;
-import javax.swing.border.SoftBevelBorder;
+
+import controller.ControlMenu;
+import model.MainStarbuzz;
+
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 
 public class viewMenu {
 
+	public JButton btonUserManagement;
 	public JFrame frmStarbuzzCoffee;
-
-		/**
-			 * Launch the application.
-			 */
-				  public static void main(String[] args) { EventQueue.invokeLater(new
-				  Runnable() { public void run() { try { viewMenu window = new viewMenu();
-				  window.frmStarbuzzCoffee.setVisible(true); } catch (Exception e) {
-				  e.printStackTrace(); } } }); }
-				 
+	public JFrame btnProcessOrder;
+	public JFrame btonOrderModule;
+	public JFrame btnLogout;
+	/*
+			*//**
+				 * Launch the application.
+				 *//*
+					 * public static void main(String[] args) { EventQueue.invokeLater(new
+					 * Runnable() { public void run() { try { viewMenu window = new viewMenu();
+					 * window.frmStarbuzzCoffee.setVisible(true); } catch (Exception e) {
+					 * e.printStackTrace(); } } }); }
+					 * 
+					 */
 
 	/**
 	 * Create the application.
@@ -42,6 +45,7 @@ public class viewMenu {
 	 */
 	private void initialize() {
 		frmStarbuzzCoffee = new JFrame();
+		frmStarbuzzCoffee.setResizable(false);
 		frmStarbuzzCoffee.getContentPane().setBackground(new Color(102, 0, 51));
 		frmStarbuzzCoffee
 				.setIconImage(Toolkit.getDefaultToolkit().getImage(viewMenu.class.getResource("/img/coffee-cup.png")));
@@ -53,6 +57,9 @@ public class viewMenu {
 		JButton btnLogout = new JButton("Logout");
 		btnLogout.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				frmStarbuzzCoffee.dispose();
+				new MainStarbuzz();
+				MainStarbuzz.main(null);
 			}
 		});
 		btnLogout.setBackground(Color.LIGHT_GRAY);
@@ -69,7 +76,7 @@ public class viewMenu {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btonOrderModule.setBounds(50, 239, 247, 68);
+		btonOrderModule.setBounds(10, 239, 207, 68);
 		frmStarbuzzCoffee.getContentPane().add(btonOrderModule);
 
 		JButton btnProcessOrder = new JButton("Process Order");
@@ -80,12 +87,26 @@ public class viewMenu {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnProcessOrder.setBounds(401, 239, 247, 68);
+		btnProcessOrder.setBounds(246, 239, 207, 68);
 		frmStarbuzzCoffee.getContentPane().add(btnProcessOrder);
 
 		JLabel lblIconMenu = new JLabel("");
 		lblIconMenu.setIcon(new ImageIcon(viewMenu.class.getResource("/img/StarbuzzDoubleLogo.png")));
 		lblIconMenu.setBounds(195, 10, 318, 183);
 		frmStarbuzzCoffee.getContentPane().add(lblIconMenu);
+
+		JButton btonUserManagement = new JButton("User Management");
+		btonUserManagement.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frmStarbuzzCoffee.dispose();
+				 ControlMenu controlMenu = ControlMenu.getControlMenu();
+				controlMenu.StartViewUsers();
+			}
+		});
+		btonUserManagement.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		btonUserManagement.setBorder(UIManager.getBorder("Button.border"));
+		btonUserManagement.setBackground(Color.LIGHT_GRAY);
+		btonUserManagement.setBounds(481, 239, 207, 68);
+		frmStarbuzzCoffee.getContentPane().add(btonUserManagement);
 	}
 }
