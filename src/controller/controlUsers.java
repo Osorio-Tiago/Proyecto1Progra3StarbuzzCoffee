@@ -32,8 +32,7 @@ public class controlUsers implements ActionListener {
 
 		view.frmUsers.setTitle("User Manager");
 		view.frmUsers.setLocationRelativeTo(null);
-		
-
+		view.frmUsers.setVisible(true);
 	}
 
 	@Override
@@ -47,10 +46,10 @@ public class controlUsers implements ActionListener {
 			modelo.setPassword(view.textPassword.getText());
 
 			if (crud.create(modelo)) {
-				JOptionPane.showMessageDialog(null, "User Saved");
+				JOptionPane.showMessageDialog(null, "User Saved","Success!", JOptionPane.INFORMATION_MESSAGE);
 				clean();
 			} else {
-				JOptionPane.showMessageDialog(null, "Error to Save");
+				JOptionPane.showMessageDialog(null, "Error to Save","Error!", JOptionPane.ERROR_MESSAGE);
 				clean();
 			}
 
@@ -64,10 +63,10 @@ public class controlUsers implements ActionListener {
 			modelo.setPassword(view.textPassword.getText());
 
 			if (crud.update(modelo)) {
-				JOptionPane.showMessageDialog(null, "User Updated");
+				JOptionPane.showMessageDialog(null, "User Updated","Success!", JOptionPane.INFORMATION_MESSAGE);
 				clean();
 			} else {
-				JOptionPane.showMessageDialog(null, "Error to update");
+				JOptionPane.showMessageDialog(null, "Error to update","Error!", JOptionPane.ERROR_MESSAGE);
 				clean();
 			}
 
@@ -79,10 +78,10 @@ public class controlUsers implements ActionListener {
 			modelo.setId(Integer.parseInt(view.textId.getText()));
 			
 			if (crud.delete(modelo)) {
-				JOptionPane.showMessageDialog(null, "User Deleted");
+				JOptionPane.showMessageDialog(null, "User Deleted","Success!", JOptionPane.INFORMATION_MESSAGE);
 				clean();
 			} else {
-				JOptionPane.showMessageDialog(null, "Error to delete");
+				JOptionPane.showMessageDialog(null, "Error to delete","Error!", JOptionPane.ERROR_MESSAGE);
 				clean();
 			}
 
@@ -100,7 +99,7 @@ public class controlUsers implements ActionListener {
 				view.textPassword.setText(String.valueOf(modelo.getPassword()));
 	
 			} else {
-				JOptionPane.showMessageDialog(null, "Error to read");
+				JOptionPane.showMessageDialog(null, "Error to read","Error!", JOptionPane.ERROR_MESSAGE);
 				clean();
 			}
 
