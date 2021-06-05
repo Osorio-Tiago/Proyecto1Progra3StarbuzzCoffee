@@ -128,6 +128,10 @@ public class viewLogin {
 		frmLogin.getContentPane().add(textPassword);
 		
 		btnLogin = new JButton("Login");
+		btnLogin.addKeyListener(new KeyAdapter() {
+			public void keyPressed(KeyEvent e) {
+			}
+		});
 		btnLogin.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

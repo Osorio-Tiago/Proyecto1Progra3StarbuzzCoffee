@@ -22,7 +22,7 @@ public class viewUsers {
 	public JButton btnCreate;
 	public JButton btnDelete;
 	public JButton btnUpdate;
-
+	public JButton btnBack;
 
 	/**
 	 * Create the application.
@@ -38,6 +38,7 @@ public class viewUsers {
 
 
 		frmUsers = new JFrame();
+		frmUsers.setResizable(false);
 		frmUsers.setTitle("User Manager");
 		frmUsers.setBounds(100, 100, 450, 300);
 		frmUsers.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -110,5 +111,14 @@ public class viewUsers {
 		JLabel lbIDUser = new JLabel("ID User:");
 		lbIDUser.setBounds(78, 56, 124, 14);
 		frmUsers.getContentPane().add(lbIDUser);
+		
+		btnBack = new JButton("Back");
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnBack.setBounds(327, 239, 89, 23);
+		frmUsers.getContentPane().add(btnBack);
+		
 	}
 }
