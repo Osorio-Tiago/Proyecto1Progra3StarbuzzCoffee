@@ -24,8 +24,8 @@ public class ControlUsers implements ActionListener {
 		this.view.btnUpdate.addActionListener(this);
 		this.view.btnDelete.addActionListener(this);
 		this.view.btnRead.addActionListener(this);
+		this.view.btnBack.addActionListener(this);
 		
-
 	}
 
 	public void start() {
@@ -103,6 +103,12 @@ public class ControlUsers implements ActionListener {
 				clean();
 			}
 
+		}
+		
+		if(e.getSource() == view.btnBack) {
+			ControlMenu menu = ControlMenu.getControlMenu();
+			view.frmUsers.dispose();
+			menu.StartApplication();
 		}
 		
 	}

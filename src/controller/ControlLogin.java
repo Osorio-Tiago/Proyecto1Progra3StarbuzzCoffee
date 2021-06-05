@@ -34,6 +34,7 @@ public class ControlLogin implements ActionListener, KeyListener{
 		this.viewLogin.btnLogin.addActionListener(this);
 		this.viewLogin.textUser.addKeyListener(this);
 		this.viewLogin.textPassword.addKeyListener(this);
+		this.viewLogin.btnLogin.addKeyListener(this);
 	}
 
 	public void start() {
@@ -48,7 +49,7 @@ public class ControlLogin implements ActionListener, KeyListener{
 
 		if (log.query(modeloLogin)) {
 
-			viewLogin.frmLogin.setVisible(false);
+			viewLogin.frmLogin.dispose();
 			ControlUsers controlUsers = new ControlUsers(modeloLogin, crud, viewUsers);
 			ControlMenu menu = ControlMenu.getControlMenu();
 			menu.setcontrolUsers(controlUsers);	
