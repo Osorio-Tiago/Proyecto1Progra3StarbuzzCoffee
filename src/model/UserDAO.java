@@ -1,7 +1,10 @@
 package model;
 
 
-// Tambien se conoce como CRUD 
+// Se crea una interfaz DAO, la cual se define como una capa básica del modelo
+// que permite mantener el dominio desacoplado de la capa de persistencia, la cual 
+//abarca  el comportamiento necesario para tratar los objetos en la base de datos.
+
 public interface UserDAO {
 
  public boolean create(User user);  

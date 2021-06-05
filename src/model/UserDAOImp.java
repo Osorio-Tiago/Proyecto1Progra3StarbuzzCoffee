@@ -5,6 +5,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+//La clase UserDaoImp implementa los métodos de UserDAO, con el objetivo principal
+//de actualizar, eliminar o recuperar objetos relacionados al usuario.
+
 public class UserDAOImp extends Database implements UserDAO {
 
 	@Override
