@@ -1,5 +1,8 @@
 package decorator;
 
+//Implementación de la interface IBeverage. Esta clase define el objeto
+//que posteriormente será decorado.
+
 public abstract class BeverageDecorator implements IBeverage {
 	 protected IBeverage beverage;
 	   

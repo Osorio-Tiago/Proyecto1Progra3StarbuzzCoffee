@@ -1,5 +1,9 @@
 package decorator;
 
+//Clase que representa uno de los ingredientes adicionales que se le pueden
+//agregar a la bebida. Es uno de los decoradores concretos que heredan de
+//BeverageDecorator.
+
 public class Soy extends BeverageDecorator {
 	
 	 public Soy(IBeverage beverage) {

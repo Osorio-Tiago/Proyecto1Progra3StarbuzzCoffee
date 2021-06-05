@@ -1,5 +1,8 @@
 package decorator;
 
+//Implementación de la interface IBeverage. Confroma parte de las cuatro
+//bebidas base y adicionalmente define un objeto que posteriormente será decorado.
+
 public class HouseBlend implements IBeverage{
 	
 	public HouseBlend() {

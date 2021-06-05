@@ -1,6 +1,7 @@
 package decorator;
 
-//Bebida base
+//Implementación de la interface IBeverage. Confroma parte de las cuatro
+//bebidas base y adicionalmente define un objeto que posteriormente será decorado.
 
 public class Espresso  implements IBeverage{
 	
