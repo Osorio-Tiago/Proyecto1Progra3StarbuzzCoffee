@@ -6,7 +6,7 @@ import view.viewMenu;
 
 public class ControlMenu{
 
-	private controlUsers controlUsers = null;
+	private ControlUsers controlUsers = null;
 	private viewMenu viewMenu = new viewMenu();
 	
 	private static ControlMenu singletonInstance = null;
@@ -19,7 +19,7 @@ public class ControlMenu{
 	    return singletonInstance;
     }
 	   
-	public void setcontrolUsers(controlUsers controlUsers) {
+	public void setcontrolUsers(ControlUsers controlUsers) {
 		this.controlUsers = controlUsers;
 	}
 	public void start() {

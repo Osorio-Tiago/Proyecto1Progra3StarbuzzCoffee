@@ -17,7 +17,7 @@ import model.UserDAOImp;
 import view.viewLogin;
 import view.viewUsers;
 
-public class controlLogin implements ActionListener, KeyListener{
+public class ControlLogin implements ActionListener, KeyListener{
 
 	private User modeloLogin;
 	private Login log;
@@ -26,7 +26,7 @@ public class controlLogin implements ActionListener, KeyListener{
 	viewUsers viewUsers = new viewUsers();
 	
 	
-	public controlLogin(User modelo, Login log, viewLogin view) {
+	public ControlLogin(User modelo, Login log, viewLogin view) {
 
 		this.modeloLogin = modelo;
 		this.log = log;
@@ -49,7 +49,7 @@ public class controlLogin implements ActionListener, KeyListener{
 		if (log.query(modeloLogin)) {
 
 			viewLogin.frmLogin.setVisible(false);
-			controlUsers controlUsers = new controlUsers(modeloLogin, crud, viewUsers);
+			ControlUsers controlUsers = new ControlUsers(modeloLogin, crud, viewUsers);
 			ControlMenu menu = ControlMenu.getControlMenu();
 			menu.setcontrolUsers(controlUsers);	
 		    JOptionPane.showMessageDialog(null,"logging in...", "Successful!", JOptionPane.INFORMATION_MESSAGE);

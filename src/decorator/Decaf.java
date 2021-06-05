@@ -1,4 +1,4 @@
-package Decorator;
+package decorator;
 
 public class Decaf implements IBeverage {
 	

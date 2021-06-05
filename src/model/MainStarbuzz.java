@@ -1,6 +1,6 @@
 package model;
 
-import controller.controlLogin;
+import controller.ControlLogin;
 import view.viewLogin;
 
 public class MainStarbuzz {
@@ -10,7 +10,7 @@ public class MainStarbuzz {
 		User usuario = new User();
 		viewLogin view = new viewLogin();
 		Login log = new Login();
-		controlLogin controlLogin = new controlLogin(usuario, log, view);
+		ControlLogin controlLogin = new ControlLogin(usuario, log, view);
 		controlLogin.start();
 		view.frmLogin.setVisible(true);
 		

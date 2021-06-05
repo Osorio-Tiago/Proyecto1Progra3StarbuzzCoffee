@@ -9,13 +9,13 @@ import model.User;
 import model.UserDAOImp;
 import view.viewUsers;
 
-public class controlUsers implements ActionListener {
+public class ControlUsers implements ActionListener {
 
 	private User modelo;
 	private UserDAOImp crud;
 	private viewUsers view;
 
-	public controlUsers(User modelo, UserDAOImp crud, viewUsers view) { // Recibe el usuario / CRUD /// VIEW
+	public ControlUsers(User modelo, UserDAOImp crud, viewUsers view) { // Recibe el usuario / CRUD /// VIEW
 
 		this.modelo = modelo;
 		this.crud = crud;
