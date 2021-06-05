@@ -17,21 +17,14 @@ import javax.swing.ImageIcon;
 
 public class viewMenu {
 
-	public JButton btonUserManagement;
+	
 	public JFrame frmStarbuzzCoffee;
-	public JFrame btnProcessOrder;
-	public JFrame btonOrderModule;
-	public JFrame btnLogout;
-	/*
-			*//**
-				 * Launch the application.
-				 *//*
-					 * public static void main(String[] args) { EventQueue.invokeLater(new
-					 * Runnable() { public void run() { try { viewMenu window = new viewMenu();
-					 * window.frmStarbuzzCoffee.setVisible(true); } catch (Exception e) {
-					 * e.printStackTrace(); } } }); }
-					 * 
-					 */
+	
+	public JButton btonUserManagement;
+	public JButton btnProcessOrder;
+	public JButton btonOrderModule;
+	public JButton btnLogout;
+	
 
 	/**
 	 * Create the application.
@@ -54,12 +47,9 @@ public class viewMenu {
 		frmStarbuzzCoffee.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmStarbuzzCoffee.getContentPane().setLayout(null);
 
-		JButton btnLogout = new JButton("Logout");
+		btnLogout = new JButton("Logout");
 		btnLogout.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frmStarbuzzCoffee.dispose();
-				new MainStarbuzz();
-				MainStarbuzz.main(null);
 			}
 		});
 		btnLogout.setBackground(Color.LIGHT_GRAY);
@@ -68,7 +58,7 @@ public class viewMenu {
 		btnLogout.setBounds(572, 367, 116, 37);
 		frmStarbuzzCoffee.getContentPane().add(btnLogout);
 
-		JButton btonOrderModule = new JButton("New Order");
+		btonOrderModule = new JButton("New Order");
 		btonOrderModule.setBorder(UIManager.getBorder("Button.border"));
 		btonOrderModule.setBackground(Color.LIGHT_GRAY);
 		btonOrderModule.setFont(new Font("Tahoma", Font.PLAIN, 12));
@@ -79,7 +69,7 @@ public class viewMenu {
 		btonOrderModule.setBounds(10, 239, 207, 68);
 		frmStarbuzzCoffee.getContentPane().add(btonOrderModule);
 
-		JButton btnProcessOrder = new JButton("Process Order");
+		btnProcessOrder = new JButton("Process Order");
 		btnProcessOrder.setBorder(UIManager.getBorder("Button.border"));
 		btnProcessOrder.setBackground(Color.LIGHT_GRAY);
 		btnProcessOrder.setFont(new Font("Tahoma", Font.PLAIN, 12));
@@ -95,12 +85,9 @@ public class viewMenu {
 		lblIconMenu.setBounds(195, 10, 318, 183);
 		frmStarbuzzCoffee.getContentPane().add(lblIconMenu);
 
-		JButton btonUserManagement = new JButton("User Management");
+		btonUserManagement = new JButton("User Management");
 		btonUserManagement.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frmStarbuzzCoffee.dispose();
-				 ControlMenu controlMenu = ControlMenu.getControlMenu();
-				controlMenu.StartViewUsers();
 			}
 		});
 		btonUserManagement.setFont(new Font("Tahoma", Font.PLAIN, 12));
