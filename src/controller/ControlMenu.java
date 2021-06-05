@@ -2,14 +2,26 @@ package controller;
 
 
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import model.MainStarbuzz;
 import view.viewMenu;
 
-public class ControlMenu{
+public class ControlMenu implements ActionListener{
 
 	private ControlUsers controlUsers = null;
 	private viewMenu viewMenu = new viewMenu();
 	
 	private static ControlMenu singletonInstance = null;
+	
+	
+	private ControlMenu() { //Contructor privado para respetar el singleton
+		this.viewMenu.btnLogout.addActionListener(this);
+		this.viewMenu.btnProcessOrder.addActionListener(this);
+		this.viewMenu.btonOrderModule.addActionListener(this);
+		this.viewMenu.btonUserManagement.addActionListener(this);
+	}
 	
 	
 	public static ControlMenu getControlMenu(){
@@ -22,7 +34,8 @@ public class ControlMenu{
 	public void setcontrolUsers(ControlUsers controlUsers) {
 		this.controlUsers = controlUsers;
 	}
-	public void start() {
+	
+	public void start() { //Creo que este metodo nunca se usa :/
 
 		viewMenu.frmStarbuzzCoffee.setTitle("StarBuzz Coffee");
 		viewMenu.frmStarbuzzCoffee.setLocationRelativeTo(null);
@@ -37,7 +50,32 @@ public class ControlMenu{
 		}
 	}
 	
-	public void StartViewUsers() {
+	public void startViewUsers() {
 		controlUsers.start();
+	}
+	
+	public void startLogin() {
+		new MainStarbuzz();
+		MainStarbuzz.main(null);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+		if(e.getSource() == viewMenu.btnLogout) {
+			viewMenu.frmStarbuzzCoffee.dispose();
+			startLogin();
+		}
+		else if(e.getSource() == viewMenu.btonUserManagement) {
+		viewMenu.frmStarbuzzCoffee.dispose();
+		startViewUsers();
+		}
+		else if(e.getSource() == viewMenu.btnProcessOrder) {
+			
+		}
+		else if(e.getSource() == viewMenu.btonOrderModule) {
+			
+		}
 	}
 }
