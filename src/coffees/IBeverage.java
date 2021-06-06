@@ -1,4 +1,4 @@
-package decorator;
+package coffees;
 
 //Interface  que define la estructura elemental del componente o aquellas clases
 //que pueden ser decoradas. En este caso se declaró una interface IBeverage en la
@@ -9,6 +9,5 @@ public interface IBeverage {
 	
 	public double cost();
 	public String createBeverage();
-	  
-
+	
 }

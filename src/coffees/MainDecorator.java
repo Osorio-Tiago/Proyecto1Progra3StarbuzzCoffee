@@ -1,4 +1,4 @@
-package decorator;
+package coffees;
 
 public class MainDecorator {
 

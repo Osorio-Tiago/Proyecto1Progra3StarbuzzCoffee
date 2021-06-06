@@ -11,6 +11,7 @@ import javax.swing.JRadioButton;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JTextArea;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.UIManager;
 import java.awt.Color;
@@ -22,7 +23,7 @@ import java.awt.Label;
 import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
 
-public class viewCoffes {
+public class ViewOrderModule {
 
 	public JFrame frmStarbuzzCoffee;
 	public JTable table;
@@ -36,8 +37,8 @@ public class viewCoffes {
 	public JRadioButton rdSteamed;
 	public JRadioButton rdWhipped;
 	public DefaultTableModel tblModel;
+	public JTextArea textOrder;
 	
-
 	/**
 	 * Launch the application.
 	 */
@@ -45,7 +46,7 @@ public class viewCoffes {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					viewCoffes window = new viewCoffes();
+					ViewOrderModule window = new ViewOrderModule();
 					window.frmStarbuzzCoffee.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -57,7 +58,7 @@ public class viewCoffes {
 	/**
 	 * Create the application.
 	 */
-	public viewCoffes() {
+	public ViewOrderModule() {
 		initialize();
 	}
 
@@ -69,10 +70,10 @@ public class viewCoffes {
 		frmStarbuzzCoffee.setForeground(Color.LIGHT_GRAY);
 		frmStarbuzzCoffee.setBackground(Color.LIGHT_GRAY);
 		frmStarbuzzCoffee.getContentPane().setBackground(Color.PINK);
-		frmStarbuzzCoffee.setIconImage(Toolkit.getDefaultToolkit().getImage(viewCoffes.class.getResource("/img/coffee-cup.png")));
+		frmStarbuzzCoffee.setIconImage(Toolkit.getDefaultToolkit().getImage(ViewOrderModule.class.getResource("/img/coffee-cup.png")));
 		frmStarbuzzCoffee.setTitle("Starbuzz Coffee");
 		frmStarbuzzCoffee.setResizable(false);
-		frmStarbuzzCoffee.setBounds(100, 100, 657, 412);
+		frmStarbuzzCoffee.setBounds(100, 100, 933, 411);
 		frmStarbuzzCoffee.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmStarbuzzCoffee.getContentPane().setLayout(null);
 
@@ -136,126 +137,19 @@ public class viewCoffes {
 		btnAdd.setBackground(Color.LIGHT_GRAY);
 		btnAdd.setBorder(UIManager.getBorder("Button.border"));
 
-//		btnAdd.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//
-//				String soya = "NO";
-//				String moka = "NO";
-//				String steamedMilk = "NO";
-//				String whippedMilk = "NO";
-//
-//				if (comboBox.getSelectedItem().equals("")) {
-//					JOptionPane.showMessageDialog(btnAdd, "Pleas enter data");
-//
-//				} else {
-//
-//					if (rdSoy.isSelected()) {
-//						soya = "YES";
-//					}
-//
-//					if (rdMocha.isSelected()) {
-//						moka = "YES";
-//					}
-//
-//					if (rdSteamed.isSelected()) {
-//						steamedMilk = "YES";
-//					}
-//					if (rdWhipped.isSelected()) {
-//						whippedMilk = "YES";
-//					}
-//
-//					String data[] = { comboBox.getSelectedItem().toString(), soya, moka, steamedMilk, whippedMilk };
-//					DefaultTableModel tblModel = (DefaultTableModel) table.getModel();
-//
-//					tblModel.addRow(data);
-//					JOptionPane.showMessageDialog(btnAdd, "Data added Sucessfully ");
-//				}
-//
-//			}
-//		});
-
 		btnAdd.setBounds(28, 328, 116, 31);
 		frmStarbuzzCoffee.getContentPane().add(btnAdd);
 
 		btnUpdate = new JButton("Update");
 		btnUpdate.setBorder(UIManager.getBorder("Button.border"));
 		btnUpdate.setBackground(Color.LIGHT_GRAY);
-//		btnUpdate.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//
-//				DefaultTableModel tblModel = (DefaultTableModel) table.getModel();
-//
-//				if (table.getSelectedRowCount() == 1) {
-//
-//					String cafe = comboBox.getSelectedItem().toString();
-//
-//					String soya;
-//					String mocha;
-//					String steamed;
-//					String whipped;
-//
-//					if (rdSoy.isSelected()) {
-//						soya = "YES";
-//					} else {
-//						soya = "NO";
-//					}
-//
-//					if (rdMocha.isSelected()) {
-//						mocha = "YES";
-//					} else {
-//						mocha = "NO";
-//					}
-//
-//					if (rdSteamed.isSelected()) {
-//						steamed = "YES";
-//					} else {
-//						steamed = "NO";
-//					}
-//					if (rdWhipped.isSelected()) {
-//						whipped = "YES";
-//					} else {
-//						whipped = "NO";
-//					}
-//
-//					tblModel.setValueAt(cafe, table.getSelectedRow(), 0);
-//					tblModel.setValueAt(soya, table.getSelectedRow(), 1);
-//					tblModel.setValueAt(mocha, table.getSelectedRow(), 2);
-//					tblModel.setValueAt(steamed, table.getSelectedRow(), 3);
-//					tblModel.setValueAt(whipped, table.getSelectedRow(), 4);
-//
-//					JOptionPane.showMessageDialog(btnUpdate, "Update Sucessfully");
-//
-//				}
-//
-//			}
-//		});
+
 		btnUpdate.setBounds(149, 328, 116, 31);
 		frmStarbuzzCoffee.getContentPane().add(btnUpdate);
 
 		btnDelete = new JButton("Delete");
 		btnDelete.setBorder(UIManager.getBorder("Button.border"));
 		btnDelete.setBackground(Color.LIGHT_GRAY);
-//		btnDelete.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//
-//				DefaultTableModel tblModel = (DefaultTableModel) table.getModel();
-//
-//				if (table.getSelectedRowCount() == 1) {
-//
-//					tblModel.removeRow(table.getSelectedRow());
-//
-//				} else {
-//					if (table.getRowCount() == 0) {
-//						JOptionPane.showMessageDialog(btnDelete, "Table Empty ");
-//					} else {
-//
-//						JOptionPane.showMessageDialog(btnDelete, "Please select a single row to delete");
-//
-//					}
-//				}
-//
-//			}
-//		});
 
 		btnDelete.setBounds(270, 328, 121, 31);
 		frmStarbuzzCoffee.getContentPane().add(btnDelete);
@@ -264,67 +158,7 @@ public class viewCoffes {
 		btnSave = new JButton("Save");
 		btnSave.setBorder(UIManager.getBorder("Button.border"));
 		btnSave.setBackground(Color.LIGHT_GRAY);
-//		btnSave.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//
-//				DefaultTableModel tblModel = (DefaultTableModel) table.getModel();
-//				if (tblModel.getRowCount() == 0) {
-//
-//					JOptionPane.showMessageDialog(btnSave, "The table is empty");
-//
-//				} else {
-//
-//					String cafe;
-//					String soya;
-//					String mocha;
-//					String steamed;
-//					String whipped;
-//
-//					try {
-//
-//						Class.forName("com.mysql.cj.jdbc.Driver");
-//						Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/proyecto", "root",
-//								"1234");
-//						for (int i = 0; i < tblModel.getRowCount(); i++) {
-//
-//							cafe = tblModel.getValueAt(i, 0).toString();
-//							soya = tblModel.getValueAt(i, 1).toString();
-//							mocha = tblModel.getValueAt(i, 2).toString();
-//							steamed = tblModel.getValueAt(i, 3).toString();
-//							whipped = tblModel.getValueAt(i, 4).toString();
-//
-//							String sql = "insert into coffe (idOrden,cafe,soya,mocha,steamed,whipped) values(?,?,?,?,?,?)";
-//
-//							PreparedStatement ps = con.prepareStatement(sql);
-//
-//							int idOrden = 1;
-//
-//							ps.setInt(1, idOrden);
-//							ps.setString(2, cafe);
-//							ps.setString(3, soya);
-//							ps.setString(4, mocha);
-//							ps.setString(5, steamed);
-//							ps.setString(6, whipped);
-//
-//							ps.execute();
-//
-//						}
-//
-//						JOptionPane.showMessageDialog(btnSave, "Data insert on the DB");
-//						tblModel.setRowCount(0);
-//
-//					} catch (SQLException ex) {
-//						System.out.println("Error in the connection with the DB" + ex);
-//					} catch (ClassNotFoundException e2) {
-//						Logger.getLogger(viewCoffes.class.getName()).log(Level.SEVERE, null, e2);
-//
-//					}
-//				}
-//
-//			}
-//
-//		});
-//
+
 		btnSave.setBounds(396, 328, 116, 31);
 		frmStarbuzzCoffee.getContentPane().add(btnSave);
 		
@@ -335,50 +169,19 @@ public class viewCoffes {
 		frmStarbuzzCoffee.getContentPane().add(btnBack);
 		
 		JLabel lblcoffeeImage = new JLabel("");
-		lblcoffeeImage.setIcon(new ImageIcon(viewCoffes.class.getResource("/img/coffee_coup.png")));
+		lblcoffeeImage.setIcon(new ImageIcon(ViewOrderModule.class.getResource("/img/coffee_coup.png")));
 		lblcoffeeImage.setBounds(508, 10, 124, 94);
 		frmStarbuzzCoffee.getContentPane().add(lblcoffeeImage);
+		
+		JScrollPane scrollPane_1 = new JScrollPane();
+		scrollPane_1.setBounds(665, 27, 245, 330);
+		frmStarbuzzCoffee.getContentPane().add(scrollPane_1);
 
-//		table.addMouseListener(new MouseAdapter() {
-//			@Override
-//			public void mouseClicked(MouseEvent e) {
-//
-//				DefaultTableModel tblModel = (DefaultTableModel) table.getModel();
-//
-//				String tblCafe = tblModel.getValueAt(table.getSelectedRow(), 0).toString();
-//				String tblSoya = tblModel.getValueAt(table.getSelectedRow(), 1).toString();
-//				String tblMocha = tblModel.getValueAt(table.getSelectedRow(), 2).toString();
-//				String tblSteamed = tblModel.getValueAt(table.getSelectedRow(), 3).toString();
-//				String tblWhipped = tblModel.getValueAt(table.getSelectedRow(), 4).toString();
-//
-//				comboBox.setSelectedItem(tblCafe);
-//
-//				if (tblSoya == "YES") {
-//					rdSoy.setSelected(true);
-//				} else {
-//					rdSoy.setSelected(false);
-//				}
-//
-//				if (tblMocha == "YES") {
-//					rdMocha.setSelected(true);
-//				} else {
-//					rdMocha.setSelected(false);
-//				}
-//
-//				if (tblSteamed == "YES") {
-//					rdSteamed.setSelected(true);
-//				} else {
-//					rdSteamed.setSelected(false);
-//				}
-//
-//				if (tblWhipped == "YES") {
-//					rdWhipped.setSelected(true);
-//				} else {
-//					rdWhipped.setSelected(false);
-//				}
-//
-//			}
-//		});
+		 textOrder = new JTextArea();
+		 textOrder.setBorder(UIManager.getBorder("TextArea.border"));
+		 textOrder.setEditable(false);
+		scrollPane_1.setViewportView(textOrder);
+
 
 	}
 }
