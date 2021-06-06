@@ -1,5 +1,8 @@
 package coffes;
 
+//Implementación de la interface Beverage. Confroma parte de las cuatro
+//bebidas base y adicionalmente define un objeto que posteriormente será decorado.
+
 public class HouseBlend implements Beverage {
 	
 	   public HouseBlend() {
@@ -12,12 +15,12 @@ public class HouseBlend implements Beverage {
 		return "HouseBlend Coffe : ";
 	}
 	public double cost() {
-		return 1;
+		return 3;
 	}
 
     public String toString() 
     {
-        return "Descripton: "+getDescription()+" - Cost:"+cost();
+        return "Descripton: "+getDescription()+"\n - Cost:"+cost();
       }
 
 }
