@@ -78,19 +78,31 @@ public class controlCoffe implements ActionListener, MouseListener {
 	int a=0;
 	
 	
+	public void setJRadioF() {
+		viewCoffes.rdSoy.setSelected(false);
+		viewCoffes.rdMocha.setSelected(false);
+		viewCoffes.rdSteamed.setSelected(false);
+		viewCoffes.rdWhipped.setSelected(false);
+
+	}
+	
+	
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 
 		if (e.getSource() == viewCoffes.btnAdd) {
-
+			
+			viewCoffes.textOrder.setText(""); //Cada que comienza una nueva orden se limpia el texto de "Factura"
+			
 			// Agregar comentarios
 			modelCoffe.setSoya("NO");
 			modelCoffe.setMocha("NO");
 			modelCoffe.setSteamed("NO");
 			modelCoffe.setWhipped("NO");
 
-			if (viewCoffes.comboBox.getSelectedItem().equals("[ - - - - - - - - - ]")) {
-				JOptionPane.showMessageDialog(viewCoffes.btnAdd, "Pleas enter coffe base");
+			if (viewCoffes.comboBox.getSelectedIndex() == -1) {
+				JOptionPane.showMessageDialog(null, "Please enter coffe base", "Error!", JOptionPane.ERROR_MESSAGE);
 
 			} else {
 
@@ -98,7 +110,6 @@ public class controlCoffe implements ActionListener, MouseListener {
 				case "HouseBled": {
 					modelCoffe.setCafe("HouseBled");
 					coffeeB = new HouseBlend();
-
 					break;
 				}
 				case "DarkRoast": {
@@ -160,8 +171,10 @@ public class controlCoffe implements ActionListener, MouseListener {
 				viewCoffes.tblModel = (DefaultTableModel) viewCoffes.table.getModel();
 
 				viewCoffes.tblModel.addRow(data);
-
-				JOptionPane.showMessageDialog(viewCoffes.btnAdd, "Data added Sucessfully ");
+				
+				
+				setJRadioF(); //Desmarca todos los JRadio btn cada que agrega un cafe
+				JOptionPane.showMessageDialog(null, "Data added Sucessfully ", "Succes!", JOptionPane.INFORMATION_MESSAGE);
 			}
 
 		}
@@ -248,6 +261,7 @@ public class controlCoffe implements ActionListener, MouseListener {
 				modelOrder.setCost(coffeeB.cost());
 				modelOrder.setStatus("Recibiendo");
 
+				setJRadioF();
 	//			orderImp.update(modelOrder);
 	//			JOptionPane.showMessageDialog(viewCoffes.btnUpdate, "Update Sucessfully");
 
@@ -267,14 +281,15 @@ public class controlCoffe implements ActionListener, MouseListener {
 				int id = Integer.parseInt(viewCoffes.tblModel.getValueAt(row, 0).toString());
 				
 				listOrders.remove(id);
+				a--;
 				viewCoffes.tblModel.removeRow(viewCoffes.table.getSelectedRow());
-				
+				setJRadioF();
 			} else {
 				if (viewCoffes.table.getRowCount() == 0) {
-					JOptionPane.showMessageDialog(viewCoffes.btnDelete, "Table Empty ");
+					JOptionPane.showMessageDialog(null, "Table Empty ", "Error!", JOptionPane.ERROR_MESSAGE);
 				} else {
 
-					JOptionPane.showMessageDialog(viewCoffes.btnDelete, "Please select a single row to delete");
+					JOptionPane.showMessageDialog(null, "Please select a single row to delete", "Error!", JOptionPane.ERROR_MESSAGE);
 
 				}
 			}
@@ -289,7 +304,7 @@ public class controlCoffe implements ActionListener, MouseListener {
 			
 			requestImp.create(modelRequest);
 
-			
+			viewCoffes.textOrder.setText("=======INVOICE=======");
 			for (int i = 0; i < listOrders.size(); i++) {
 				
 				orderImp.create(listOrders.get(i), modelRequest);
@@ -298,13 +313,12 @@ public class controlCoffe implements ActionListener, MouseListener {
 				costRequest = listOrders.get(i).getCost() + costRequest;
 				
 				
-				mensaje = "\n------------------\n" + listOrders.get(i).getDetail() + "\n"+ listOrders.get(i).getCost() + mensaje;
+				mensaje ="\n------------------\n" +listOrders.get(i).getDetail() + "\n"+ listOrders.get(i).getCost() + mensaje;
 				viewCoffes.textOrder.setText(mensaje);
-				
 				
 			}
 			
-			viewCoffes.textOrder.setText(mensaje +"\n" +"\nTOTAL A PAGAR: \n" + costRequest);
+			viewCoffes.textOrder.setText("=======INVOICE======="+ mensaje +"\n" +"\nTOTAL: \n" + costRequest);
 			
 			modelRequest.setTotalDetail(detalleRequest);
 			modelRequest.setTotalCost(costRequest);
@@ -313,7 +327,7 @@ public class controlCoffe implements ActionListener, MouseListener {
 			
 
 			if (viewCoffes.tblModel.getRowCount() == 0) {
-				JOptionPane.showMessageDialog(viewCoffes.btnSave, "The table is empty");
+				JOptionPane.showMessageDialog(null, "The table is empty","Error!", JOptionPane.ERROR_MESSAGE);
 
 			} else {
 
@@ -329,14 +343,12 @@ public class controlCoffe implements ActionListener, MouseListener {
 
 				}
 
-				JOptionPane.showMessageDialog(viewCoffes.btnSave, "Data insert on the DB");
+				JOptionPane.showMessageDialog(null, "Order sent to kitchen", "Thanks!", JOptionPane.INFORMATION_MESSAGE);
 				// Clean
 				viewCoffes.tblModel.setRowCount(0);
-				viewCoffes.comboBox.setSelectedItem("");
-				viewCoffes.rdSoy.setSelected(false);
-				viewCoffes.rdMocha.setSelected(false);
-				viewCoffes.rdSteamed.setSelected(false);
-				viewCoffes.rdWhipped.setSelected(false);
+				viewCoffes.comboBox.setSelectedItem(-1);
+				setJRadioF(); 
+				a = 0;
 			}
 
 			listOrders.clear();

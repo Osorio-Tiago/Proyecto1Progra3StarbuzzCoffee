@@ -6,6 +6,8 @@ import javax.swing.JTextField;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 //import java.awt.EventQueue;
 //import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
@@ -29,6 +31,8 @@ public class viewUsers {
 	 */
 	public viewUsers() {
 		initialize();
+		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+		frmUsers.setLocation(dim.width/2-frmUsers.getSize().width/2, dim.height/2-frmUsers.getSize().height/2);
 	}
 
 	/**

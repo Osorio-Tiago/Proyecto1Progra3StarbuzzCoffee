@@ -16,6 +16,8 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.UIManager;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Dimension;
+
 import javax.swing.Box;
 import java.awt.Toolkit;
 import java.awt.SystemColor;
@@ -23,6 +25,11 @@ import java.awt.Label;
 import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.EnumSet;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import java.awt.event.ActionEvent;
 
 public class ViewOrderModule {
@@ -41,28 +48,32 @@ public class ViewOrderModule {
 	public DefaultTableModel tblModel;
 	public JTextArea textOrder;
 	public JButton btnBack;
-	/**
-	 * Launch the application.
-	 */
+	
+	
 	/*
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					ViewOrderModule window = new ViewOrderModule();
-					window.frmStarbuzzCoffee.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+	 * Enum para asi poder agregar más cafes a la lista del comboBox sin tener que ir hasta abajo en el código
+	 */
+	public enum cafecitos {
+		 HouseBled,
+		 DarkRoast,
+		 Decaf,
+		 Espresso;
 	}
-*/
+	/*
+	 * Metodo para convertir las constantes del Enum en Strings y asi pasarlos al comboBox
+	 */
+	List<String> enumNames = Stream.of(cafecitos.values())
+            .map(Enum::name)
+            .collect(Collectors.toList());
+	
+
 	/**
 	 * Create the application.
 	 */
 	public ViewOrderModule() {
 		initialize();
+		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+		frmStarbuzzCoffee.setLocation(dim.width/2-frmStarbuzzCoffee.getSize().width/2, dim.height/2-frmStarbuzzCoffee.getSize().height/2);
 	}
 
 	/**
@@ -85,14 +96,17 @@ public class ViewOrderModule {
 		lbTypeCoffe.setBounds(27, 27, 118, 30);
 		frmStarbuzzCoffee.getContentPane().add(lbTypeCoffe);
 
-		comboBox = new JComboBox<String>();
+		
+		
+		String[] array = enumNames.toArray(new String[enumNames.size()]);
+		comboBox = new JComboBox<String>(array);
 		comboBox.setBackground(Color.LIGHT_GRAY);
 		comboBox.setBorder(UIManager.getBorder("Button.border"));
 		
+	/*	comboBox.setModel(
+		new DefaultComboBoxModel<String>(new String[] { "[ - - - - - - - - - ]", "HouseBled", "DarkRoast", "Decaf", "Espresso" }));	*/	
 		
-		comboBox.setModel(
-				new DefaultComboBoxModel<String>(new String[] { "[ - - - - - - - - - ]", "HouseBled", "DarkRoast", "Decaf", "Espresso" }));		
-		comboBox.setSelectedIndex(0);
+		comboBox.setSelectedIndex(-1);
 		comboBox.setBounds(155, 31, 130, 29);
 		frmStarbuzzCoffee.getContentPane().add(comboBox);
 
