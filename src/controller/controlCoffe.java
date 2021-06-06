@@ -274,9 +274,7 @@ public class controlCoffe implements ActionListener, MouseListener {
 			}else {
 				JOptionPane.showMessageDialog(null, "Table Empty ", "Error!", JOptionPane.ERROR_MESSAGE);
 			}
-
 		}
-		
 		
 		else if (e.getSource() == viewCoffes.btnDelete) {
 
@@ -306,6 +304,9 @@ public class controlCoffe implements ActionListener, MouseListener {
 		
 		else if (e.getSource() == viewCoffes.btnSave) {
 
+			if (viewCoffes.tblModel == null) {
+				JOptionPane.showMessageDialog(null, "The table is empty","Error!", JOptionPane.ERROR_MESSAGE); 
+			}else {
 			modelRequest.setTotalDetail(null);
 			modelRequest.setTotalCost(0);
 			modelRequest.setTotalStatus("Recibiendo");
@@ -334,10 +335,9 @@ public class controlCoffe implements ActionListener, MouseListener {
 			requestImp.update(modelRequest);
 			
 			
-
 			if (viewCoffes.tblModel.getRowCount() == 0) {
 				JOptionPane.showMessageDialog(null, "The table is empty","Error!", JOptionPane.ERROR_MESSAGE);
-
+				
 			} else {
 
 				for (int i = 0; i < viewCoffes.tblModel.getRowCount(); i++) {// 0 1 2 3 4 son columnas de la tabla
@@ -361,8 +361,8 @@ public class controlCoffe implements ActionListener, MouseListener {
 			}
 
 			listOrders.clear();
-		}
-		
+			}
+	    }
 	
 		else if (e.getSource() == viewCoffes.btnBack) {
 			this.viewCoffes.frmStarbuzzCoffee.dispose();
