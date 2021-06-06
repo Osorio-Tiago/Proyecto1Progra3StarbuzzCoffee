@@ -4,19 +4,18 @@ package coffes;
 //agregar a la bebida. Es uno de los decoradores concretos que heredan de
 //BeverageDecorator.
 
-public class Mocha extends CondimentDecorator {
+public class Caramel extends CondimentDecorator {
 
-	public Mocha(Beverage coffe) {
+	public Caramel(Beverage coffe) {
 		super(coffe);
 	}
 
 	public String getDescription() {
-		return super.getDescription() + "Mocha "; 
+		return super.getDescription() + " SteamedMilk "; 
 	}
-	
+		
 	//Este método le suma al precio base de la bebida el costo del ingrediente adicional.
-
 	public double cost() {
-		return 1.50 + coffe.cost();
+		return 1 + coffe.cost();
 	}
 }

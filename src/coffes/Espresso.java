@@ -1,5 +1,8 @@
 package coffes;
 
+//Implementación de la interface Beverage. Confroma parte de las cuatro
+//bebidas base y adicionalmente define un objeto que posteriormente será decorado.
+
 public class Espresso implements Beverage {
 	  
 	
@@ -14,7 +17,7 @@ public class Espresso implements Beverage {
 	}
   
 	public double cost() {
-		return 1;
+		return 2.5;
 	}
 
 

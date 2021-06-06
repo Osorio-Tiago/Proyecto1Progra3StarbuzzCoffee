@@ -10,11 +10,14 @@ import java.sql.SQLException;
 
 public class UserDAOImp extends Database implements UserDAO {
 
+	//Se encarga de crear un nuevo usuario, al cual se le asignan
+	//datos específicos.
 	@Override
 	public boolean create(User user) {
 
 		PreparedStatement ps = null;
-		Connection con = getConexion();
+		Connection con = getConexion(); //Establece una conexión.
+		//El string se crea con lo que es necesario consultar a la base de datos.
 		String sql = "INSERT INTO user (id, name, user, password) VALUES(?,?,?,?)";
 
 		try {
@@ -24,7 +27,7 @@ public class UserDAOImp extends Database implements UserDAO {
 			ps.setString(2, user.getFullName());
 			ps.setString(3, user.getUser());
 			ps.setString(4, user.getPassword());
-			ps.execute();
+			ps.execute(); //Ejecuta toda la infromación.
 			return true;
 			
 		} catch (SQLException e) {
@@ -39,6 +42,9 @@ public class UserDAOImp extends Database implements UserDAO {
 		}
 
 	}
+	
+	//Este método actualiza los datos del usuario,en caso de que se deseen
+	//modificar.
 
 	@Override
 	public boolean update(User user) {
@@ -68,6 +74,9 @@ public class UserDAOImp extends Database implements UserDAO {
 			}
 		}
 	}
+	
+	//Este método lee la información que se encuentra ya registrada en la
+	//base de datos.
 
 	@Override
 	public boolean read(User user) {
@@ -107,6 +116,9 @@ public class UserDAOImp extends Database implements UserDAO {
 		}
 
 	}
+	
+	//Este método encarga de eliminar un usuario, el cual se identifica
+	//por medio del id.
 
 	@Override
 	public boolean delete(User user) {

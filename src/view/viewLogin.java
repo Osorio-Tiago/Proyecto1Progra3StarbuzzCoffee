@@ -83,7 +83,7 @@ public class viewLogin {
 		JLabel lbUser = new JLabel();
 		lbUser.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		lbUser.setBounds(26, 147, 61, 54);
-		frmLogin.getContentPane().add(lbUser);
+		frmLogin.getContentPane().add(lbUser);//iconUser
 		
 		ImageIcon imgUser = new ImageIcon(getClass().getResource("/img/iconUser.png")); 
 	    Icon fondoUser = new ImageIcon( imgUser.getImage().getScaledInstance(lbUser.getWidth(),lbUser.getHeight(), Image.SCALE_DEFAULT)); 
