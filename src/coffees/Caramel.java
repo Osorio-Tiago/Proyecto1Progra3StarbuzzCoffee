@@ -1,4 +1,4 @@
-package decorator;
+package coffees;
 
 //Clase que representa uno de los ingredientes adicionales que se le pueden
 //agregar a la bebida. Es uno de los decoradores concretos que heredan de
@@ -18,7 +18,4 @@ public class Caramel extends BeverageDecorator{
 	 public String createBeverage(){
 	        return super.createBeverage() + "\nAdditional Ingredient: Caramel -> $1.80";
 	 }
-	    
-	
-
 }

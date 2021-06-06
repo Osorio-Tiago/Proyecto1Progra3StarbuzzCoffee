@@ -25,7 +25,6 @@ public class viewMenu {
 	public JButton btonOrderModule;
 	public JButton btnLogout;
 	
-
 	/**
 	 * Create the application.
 	 */

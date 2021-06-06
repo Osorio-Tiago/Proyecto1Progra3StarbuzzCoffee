@@ -32,7 +32,6 @@ public class viewLogin {
 	public JPasswordField textPassword;
 	public JButton btnLogin;
 	
-	
 	/**
 	 * Create the application.
 	 */

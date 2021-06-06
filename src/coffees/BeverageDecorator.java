@@ -1,4 +1,4 @@
-package decorator;
+package coffees;
 
 //Clase abstracta que especifica la estructura elemental de un decorador,
 //la cual a su vez hereda de IBeverage y contiene un atributo de dicha interface 

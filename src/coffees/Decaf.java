@@ -1,22 +1,23 @@
-package decorator;
+package coffees;
 
 //Implementación de la interface IBeverage. Confroma parte de las cuatro
 //bebidas base y adicionalmente define un objeto que posteriormente será decorado.
 
-public class Espresso  implements IBeverage{
+
+public class Decaf implements IBeverage {
 	
-	public Espresso() {
+	public Decaf() {
 		
 	}
 
 	@Override
 	public double cost() {
-		return 3;
+		return 1.90;
 	}
 
 	@Override
 	public String createBeverage() {
-		return "Espresso Coffee -> $3";
+		return "Decaf Coffee -> $1.90";
 	}
 
 }

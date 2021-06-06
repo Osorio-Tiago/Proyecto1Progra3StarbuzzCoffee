@@ -35,11 +35,6 @@ public class ControlMenu implements ActionListener{
 		this.controlUsers = controlUsers;
 	}
 	
-	public void start() { //Creo que este metodo nunca se usa :/
-
-		viewMenu.frmStarbuzzCoffee.setTitle("StarBuzz Coffee");
-		viewMenu.frmStarbuzzCoffee.setLocationRelativeTo(null);
-	}
 	
 	public void StartApplication() {
 		try {

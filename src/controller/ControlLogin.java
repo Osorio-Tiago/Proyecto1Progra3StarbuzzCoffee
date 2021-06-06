@@ -41,6 +41,7 @@ public class ControlLogin implements ActionListener, KeyListener{
 
 		viewLogin.frmLogin.setTitle("Login");
 		viewLogin.frmLogin.setLocationRelativeTo(null);
+		
 	}
 
 	public void queryLogin() {
