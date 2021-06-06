@@ -271,6 +271,8 @@ public class controlCoffe implements ActionListener, MouseListener {
 	//			orderImp.update(modelOrder);
 	//			JOptionPane.showMessageDialog(viewCoffes.btnUpdate, "Update Sucessfully");
 
+			}else {
+				JOptionPane.showMessageDialog(null, "Table Empty ", "Error!", JOptionPane.ERROR_MESSAGE);
 			}
 
 		}
@@ -309,8 +311,8 @@ public class controlCoffe implements ActionListener, MouseListener {
 			modelRequest.setTotalStatus("Recibiendo");
 			
 			requestImp.create(modelRequest);
-
-			viewCoffes.textOrder.setText("=======INVOICE=======");
+			
+			
 			for (int i = 0; i < listOrders.size(); i++) {
 				
 				orderImp.create(listOrders.get(i), modelRequest);
