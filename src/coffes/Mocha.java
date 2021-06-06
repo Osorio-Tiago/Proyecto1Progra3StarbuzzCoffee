@@ -6,8 +6,8 @@ package coffes;
 
 public class Mocha extends CondimentDecorator {
 
-	public Mocha(Beverage coffe) {
-		super(coffe);
+	public Mocha(IBeverage coffee) {
+		super(coffee);
 	}
 
 	public String getDescription() {
@@ -17,6 +17,6 @@ public class Mocha extends CondimentDecorator {
 	//Este método le suma al precio base de la bebida el costo del ingrediente adicional.
 
 	public double cost() {
-		return 1.50 + coffe.cost();
+		return 1.50 + coffee.cost();
 	}
 }

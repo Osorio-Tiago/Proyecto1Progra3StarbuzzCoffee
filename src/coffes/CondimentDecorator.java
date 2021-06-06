@@ -4,22 +4,22 @@ package coffes;
 //la cual a su vez hereda de IBeverage y contiene un atributo de dicha interface 
 //que podrá ser decorado.
 
-public abstract class CondimentDecorator implements Beverage {
+public abstract class CondimentDecorator implements IBeverage {
 	
-	protected Beverage coffe;
+	protected IBeverage coffee;
 	
-	public CondimentDecorator(Beverage coffeD) {
-		coffe = coffeD;
+	public CondimentDecorator(IBeverage coffeeD) {
+		coffee = coffeeD;
 	}
 	
 
 	public String getDescription() {
-		return coffe.getDescription();
+		return coffee.getDescription();
 		
 	}
 	
 	public double cost() {
-		return coffe.cost();
+		return coffee.cost();
 	}
 	
 }

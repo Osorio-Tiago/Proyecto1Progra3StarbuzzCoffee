@@ -5,8 +5,8 @@ package coffes;
 //BeverageDecorator.
 public class Soy extends CondimentDecorator {
 
-	public Soy(Beverage coffe) {
-		super(coffe);
+	public Soy(IBeverage coffee) {
+		super(coffee);
 	}
 
 	public String getDescription() {
@@ -15,6 +15,6 @@ public class Soy extends CondimentDecorator {
 
 	//Este método le suma al precio base de la bebida el costo del ingrediente adicional.
 	public double cost() {
-		return 1.20 + coffe.cost();
+		return 1.20 + coffee.cost();
 	}
 }

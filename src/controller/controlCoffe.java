@@ -74,7 +74,7 @@ public class controlCoffe implements ActionListener, MouseListener {
 		viewCoffes.frmStarbuzzCoffee.setLocationRelativeTo(null);
 	}
 
-	Beverage coffeeB = null;
+	IBeverage coffeeB = null;
 	ArrayList<Order> listOrders = new ArrayList<Order>();
 	String detalleRequest = "";
 	double costRequest = 0;

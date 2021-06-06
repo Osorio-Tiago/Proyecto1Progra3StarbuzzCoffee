@@ -5,7 +5,7 @@ package coffes;
 //que se definen los métodos cost(), para calcular el precio de las bebidas y 
 //createBeverage() para agregar ingredientes posteriormente.
 
-public interface Beverage {
+public interface IBeverage {
 
 	public String getDescription();
 	public abstract double cost();

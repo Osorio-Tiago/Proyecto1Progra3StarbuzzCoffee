@@ -6,8 +6,8 @@ package coffes;
 
 public class SteamedMilk extends CondimentDecorator {
 
-	public SteamedMilk(Beverage coffe) {
-		super(coffe);
+	public SteamedMilk(IBeverage coffee) {
+		super(coffee);
 	}
 
 	public String getDescription() {
@@ -16,6 +16,6 @@ public class SteamedMilk extends CondimentDecorator {
 		
 	//Este método le suma al precio base de la bebida el costo del ingrediente adicional.
 	public double cost() {
-		return 1 + coffe.cost();
+		return 1 + coffee.cost();
 	}
 }

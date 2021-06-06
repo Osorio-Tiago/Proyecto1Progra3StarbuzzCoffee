@@ -1,9 +1,9 @@
 package coffes;
 
-//Implementación de la interface Beverage. Confroma parte de las cuatro
+//Implementación de la interface IBeverage. Confroma parte de las cuatro
 //bebidas base y adicionalmente define un objeto que posteriormente será decorado.
 
-public class DarkRoast implements Beverage {
+public class DarkRoast implements IBeverage {
 	
     public DarkRoast() {
         
