@@ -7,6 +7,8 @@ import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
+import java.awt.Dimension;
+
 import javax.swing.UIManager;
 
 import controller.ControlMenu;
@@ -30,6 +32,8 @@ public class viewMenu {
 	 */
 	public viewMenu() {
 		initialize();
+		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+		frmStarbuzzCoffee.setLocation(dim.width/2-frmStarbuzzCoffee.getSize().width/2, dim.height/2-frmStarbuzzCoffee.getSize().height/2);
 	}
 
 	/**
