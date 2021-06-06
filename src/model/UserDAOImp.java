@@ -27,7 +27,7 @@ public class UserDAOImp extends Database implements UserDAO {
 			ps.setString(2, user.getFullName());
 			ps.setString(3, user.getUser());
 			ps.setString(4, user.getPassword());
-			ps.execute(); //Ejecuta toda la infromación.
+			ps.execute(); //Ejecuta toda la información.
 			return true;
 			
 		} catch (SQLException e) {
@@ -107,7 +107,7 @@ public class UserDAOImp extends Database implements UserDAO {
 		} catch (SQLException e) {
 			System.err.println("Error trying to read the DATA" + e);
 			return false;
-		} finally { // Este proceso es para finalizar la conexion
+		} finally { // Este proceso es para finalizar la conexión
 			try {
 				con.close();
 			} catch (SQLException e2) {

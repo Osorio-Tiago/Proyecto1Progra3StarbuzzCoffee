@@ -37,7 +37,8 @@ public class controlCoffe implements ActionListener, MouseListener {
 
 	private Request modelRequest;
 	private RequestDAOImp requestImp;
-
+	
+ 
 	public controlCoffe(Coffe modelCoffe, view.ViewOrderModule viewCoffes, Order modelOrder,
 			OrderDAOImp orderImp, Request modelRequest, RequestDAOImp requestImp) {
 
@@ -64,6 +65,7 @@ public class controlCoffe implements ActionListener, MouseListener {
 		
 	}
 
+	
 	public void start() {
 
 		viewCoffes.frmStarbuzzCoffee.setTitle("Coffes");
@@ -85,9 +87,11 @@ public class controlCoffe implements ActionListener, MouseListener {
 		viewCoffes.rdWhipped.setSelected(false);
 
 	}
+
 	
-	
-	
+	//Método que permite controlar la tabla de ordenes de cafés. Este método
+	//hace uso del decorador, ya que al crear una bebida base se le permite
+	//agregar cualquiera de los ingredientes adicionales que se deseen.
 	@Override
 	public void actionPerformed(ActionEvent e) {
 
@@ -105,11 +109,12 @@ public class controlCoffe implements ActionListener, MouseListener {
 				JOptionPane.showMessageDialog(null, "Please enter coffe base", "Error!", JOptionPane.ERROR_MESSAGE);
 
 			} else {
-
+				//Creación de las bebidas base.
 				switch (viewCoffes.comboBox.getSelectedItem().toString()) {
 				case "HouseBled": {
 					modelCoffe.setCafe("HouseBled");
 					coffeeB = new HouseBlend();
+
 					break;
 				}
 				case "DarkRoast": {
@@ -129,7 +134,8 @@ public class controlCoffe implements ActionListener, MouseListener {
 					break;
 				}
 				}
-
+				
+                //Decorador, agregar ingredientes a la bebida base.
 				if (viewCoffes.rdSoy.isSelected()) {
 					modelCoffe.setSoya("YES");
 					coffeeB = new Soy(coffeeB);
@@ -315,6 +321,7 @@ public class controlCoffe implements ActionListener, MouseListener {
 				
 				mensaje ="\n------------------\n" +listOrders.get(i).getDetail() + "\n"+ listOrders.get(i).getCost() + mensaje;
 				viewCoffes.textOrder.setText(mensaje);
+				
 				
 			}
 			

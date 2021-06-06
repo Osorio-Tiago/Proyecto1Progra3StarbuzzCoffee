@@ -17,6 +17,13 @@ import model.UserDAOImp;
 import view.viewLogin;
 import view.viewUsers;
 
+/*
+ * Esta clase controlador se encarga de gestionar los procesos logicos
+ *  y contiene los controles de las vistas del login.
+ * Además, gestiona el tratamiento de eventos.
+ * 
+ * */
+
 public class ControlLogin implements ActionListener, KeyListener{
 
 	private User modeloLogin;
@@ -36,13 +43,19 @@ public class ControlLogin implements ActionListener, KeyListener{
 		this.viewLogin.textPassword.addKeyListener(this);
 		this.viewLogin.btnLogin.addKeyListener(this);
 	}
-
+	
+	
+	//Permite mostrar la ventana
 	public void start() {
 
 		viewLogin.frmLogin.setTitle("Login");
 		viewLogin.frmLogin.setLocationRelativeTo(null);
 		
 	}
+	
+	//Este método se encarga de comparar si los datos ingresados
+	//corresponden a usarios válidos, o si por lo contrario, los datos
+	//no coinciden con la información registrada en la base de datos.
 
 	public void queryLogin() {
 		modeloLogin.setUser(viewLogin.textUser.getText());
@@ -64,7 +77,8 @@ public class ControlLogin implements ActionListener, KeyListener{
 		}
 
 	}
-
+	
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == viewLogin.btnLogin) {

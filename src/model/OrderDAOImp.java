@@ -9,13 +9,15 @@ import java.sql.SQLException;
 
 public class OrderDAOImp extends Database implements OrderDAO{
 
-	
-	
+	//Se encarga de crear un nuevo usuario, al cual se le asignan
+	//datos específicos.
+	//Recibe una orden y un pedido, ya que no puede exisitir una orden si primero no se crea
+	//un pedido.
 	@Override
 	public boolean create(Order order, Request request) {
 		
 		PreparedStatement ps = null;
-		Connection con = getConexion();
+		Connection con = getConexion(); //Establece una conexión.
 		String sql = "INSERT INTO orden (idPedido,detalle,estado,costo) values(?,?,?,?)";
 
 
@@ -57,13 +59,17 @@ public class OrderDAOImp extends Database implements OrderDAO{
 		
 
 	}
+	
+	//Este método actualiza los datos de la orden,en caso de que se deseen
+	//modificar.
+
 
 	@Override
 	public boolean update(Order order) {
 
 
 		PreparedStatement ps = null;
-		Connection con = getConexion();
+		Connection con = getConexion(); //Establece una conexión.
 		String sql = "UPDATE orden SET detalle=?, estado=?, costo=? WHERE idOrden=? ";
 
 		try {
