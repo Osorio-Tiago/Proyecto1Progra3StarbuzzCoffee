@@ -5,13 +5,15 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+//La clase RequestDaoImp implementa los métodos de RequestDAO, con el objetivo principal
+//de crear, actualizar, eliminar o leer información de la base de datos.
 public class RequestDAOImp extends Database implements RequestDAO{
 
 	@Override
 	public boolean create(Request request) {
 
 		PreparedStatement ps = null;
-		Connection con = getConexion();
+		Connection con = getConexion(); //Establece una conexión.
 		String sql = "INSERT INTO pedido (detallePedido, estadoPedido ,costoPedido) values(?,?,?)";
 
 
@@ -40,7 +42,7 @@ public class RequestDAOImp extends Database implements RequestDAO{
 			System.err.println("Error trying to introduce the DATA" + e);
 			return false;
 		
-			} finally { // Este proceso es para finalizar la conexion
+			} finally { // Este proceso es para finalizar la conexión
 			try {
 				con.close();
 			} catch (SQLException e2) {

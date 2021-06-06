@@ -1,5 +1,9 @@
 package model;
 
+//La clase Request es un contenedor elemental que define los datos o información
+//más relevante de una orden.
+
+
 public class Order {
 
 	int id;
@@ -7,17 +11,23 @@ public class Order {
 	String status;
 	double cost;
 	
+	
+	//Constructor con parámetros.
 	public Order(String detail, double cost, String status) {
 		super();
 		this.detail = detail;
 		this.cost = cost;
 		this.status = status;
 	}
+	
+	//Constructor sin parámetros.
 
 	public Order() {
 	
 	}
 	
+	
+	//Métodos get() y set()
 	public int getId() {
 		return id;
 	}
