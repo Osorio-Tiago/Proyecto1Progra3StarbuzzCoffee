@@ -5,7 +5,14 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+
+import model.Coffe;
 import model.MainStarbuzz;
+import model.Order;
+import model.OrderDAOImp;
+import model.Request;
+import model.RequestDAOImp;
+import view.ViewOrderModule;
 import view.viewMenu;
 
 public class ControlMenu implements ActionListener{
@@ -54,6 +61,21 @@ public class ControlMenu implements ActionListener{
 		MainStarbuzz.main(null);
 	}
 
+	public void startOrderModule() {
+		
+		Coffe cafe = new Coffe();
+		ViewOrderModule view = new ViewOrderModule();
+		Order order = new Order();
+		OrderDAOImp orderImp = new OrderDAOImp();
+		
+		Request request = new Request();
+		RequestDAOImp requestImp = new RequestDAOImp();
+		
+		controlCoffe controlCoffe = new controlCoffe(cafe, view, order, orderImp,request,requestImp);
+		controlCoffe.start();
+		view.frmStarbuzzCoffee.setVisible(true);
+		
+	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
@@ -70,7 +92,8 @@ public class ControlMenu implements ActionListener{
 			
 		}
 		else if(e.getSource() == viewMenu.btonOrderModule) {
-			
+			viewMenu.frmStarbuzzCoffee.dispose();
+			startOrderModule();
 		}
 	}
 }

@@ -22,6 +22,8 @@ import java.awt.SystemColor;
 import java.awt.Label;
 import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class ViewOrderModule {
 
@@ -38,10 +40,11 @@ public class ViewOrderModule {
 	public JRadioButton rdWhipped;
 	public DefaultTableModel tblModel;
 	public JTextArea textOrder;
-	
+	public JButton btnBack;
 	/**
 	 * Launch the application.
 	 */
+	/*
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -54,7 +57,7 @@ public class ViewOrderModule {
 			}
 		});
 	}
-
+*/
 	/**
 	 * Create the application.
 	 */
@@ -129,7 +132,7 @@ public class ViewOrderModule {
 
 		table = new JTable();
 		table.setModel(new DefaultTableModel(new Object[][] {},
-				new String[] { "Coffe", "Soy", "Mocha", "Steamed Milk", "Whipped Milk" }));
+				new String[] { 	"idOrden", "Coffe", "Soy", "Mocha", "Steamed Milk", "Whipped Milk" }));
 		
 		scrollPane.setViewportView(table);
 
@@ -162,7 +165,11 @@ public class ViewOrderModule {
 		btnSave.setBounds(396, 328, 116, 31);
 		frmStarbuzzCoffee.getContentPane().add(btnSave);
 		
-		JButton btnBack = new JButton("Back");
+		btnBack = new JButton("Back");
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnBack.setBorder(UIManager.getBorder("Button.border"));
 		btnBack.setBackground(Color.LIGHT_GRAY);
 		btnBack.setBounds(516, 328, 116, 31);

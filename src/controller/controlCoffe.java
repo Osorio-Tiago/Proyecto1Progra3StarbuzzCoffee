@@ -32,7 +32,6 @@ public class controlCoffe implements ActionListener, MouseListener {
 
 	private Coffe modelCoffe;
 
-
 	private Order modelOrder;
 	private OrderDAOImp orderImp;
 
@@ -61,16 +60,16 @@ public class controlCoffe implements ActionListener, MouseListener {
 		this.viewCoffes.rdSteamed.addActionListener(this);
 		this.viewCoffes.rdWhipped.addActionListener(this);
 		this.viewCoffes.table.addMouseListener(this);
+		this.viewCoffes.btnBack.addActionListener(this);
 		
-
 	}
-/*
+
 	public void start() {
 
 		viewCoffes.frmStarbuzzCoffee.setTitle("Coffes");
 		viewCoffes.frmStarbuzzCoffee.setLocationRelativeTo(null);
 	}
-*/
+
 	Beverage coffeeB = null;
 	ArrayList<Order> listOrders = new ArrayList<Order>();
 	String detalleRequest = "";
@@ -90,7 +89,7 @@ public class controlCoffe implements ActionListener, MouseListener {
 			modelCoffe.setSteamed("NO");
 			modelCoffe.setWhipped("NO");
 
-			if (viewCoffes.comboBox.getSelectedItem().equals("")) {
+			if (viewCoffes.comboBox.getSelectedItem().equals("[ - - - - - - - - - ]")) {
 				JOptionPane.showMessageDialog(viewCoffes.btnAdd, "Pleas enter coffe base");
 
 			} else {
@@ -169,7 +168,7 @@ public class controlCoffe implements ActionListener, MouseListener {
 
 
 
-		if (e.getSource() == viewCoffes.btnUpdate) {
+		else if (e.getSource() == viewCoffes.btnUpdate) {
 
 			viewCoffes.tblModel = (DefaultTableModel) viewCoffes.table.getModel();
 
@@ -257,7 +256,7 @@ public class controlCoffe implements ActionListener, MouseListener {
 		}
 		
 		
-		if (e.getSource() == viewCoffes.btnDelete) {
+		else if (e.getSource() == viewCoffes.btnDelete) {
 
 			viewCoffes.tblModel = (DefaultTableModel) viewCoffes.table.getModel();
 
@@ -282,7 +281,7 @@ public class controlCoffe implements ActionListener, MouseListener {
 
 		}
 		
-		if (e.getSource() == viewCoffes.btnSave) {
+		else if (e.getSource() == viewCoffes.btnSave) {
 
 			modelRequest.setTotalDetail(null);
 			modelRequest.setTotalCost(0);
@@ -343,10 +342,14 @@ public class controlCoffe implements ActionListener, MouseListener {
 			listOrders.clear();
 		}
 		
+	
+		else if (e.getSource() == viewCoffes.btnBack) {
+			this.viewCoffes.frmStarbuzzCoffee.dispose();
+			
+			ControlMenu menu = ControlMenu.getControlMenu();
+			menu.StartApplication();
+		}
 		
-
-
-
 	}
 
 	@Override
