@@ -40,7 +40,7 @@ public class controlConsultas implements ActionListener {
 
 	public void start() {
 
-		view.frame.setTitle("Pendientes");
+		view.frame.setTitle("Pending orders");
 		view.frame.setLocationRelativeTo(null);
 		DBConsultOrders();
 	}

@@ -37,7 +37,7 @@ public class controlConsultasTerminadas implements ActionListener {
     //Muestra las órdenes que han sido procesadas.
 	public void start() {
 
-		view.frame.setTitle("Ordenes Procesadas");
+		view.frame.setTitle("Order history");
 		view.frame.setLocationRelativeTo(null);
 
 		
