@@ -15,5 +15,7 @@ public interface ConsultasDAO {
 
 	boolean setEstadoPendientes(Request request);
 	
-	
+	//METODOS NUEVOS
+	public ArrayList<Request> getRequestFinished(Request request);
+	public ArrayList<Order> readFinished(int num);
 }

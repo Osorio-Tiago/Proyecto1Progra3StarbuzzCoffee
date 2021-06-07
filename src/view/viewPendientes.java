@@ -51,7 +51,7 @@ public class viewPendientes {
 		frame.setIconImage(Toolkit.getDefaultToolkit().getImage(viewPendientes.class.getResource("/img/coffee-cup.png")));
 		frame.getContentPane().setBackground(Color.PINK);
 		frame.setResizable(false);
-		frame.setBounds(100, 100, 670, 411);
+		frame.setBounds(100, 100, 670, 426);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();

@@ -1,46 +1,40 @@
 package controller;
 
-
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import model.ConsultasDAOImp;
 import model.Request;
 import view.viewKitchenMenu;
 import view.viewPendientes;
+import view.viewTerminado;
 
-public class ControlKitchen implements ActionListener{
+public class ControlKitchen implements ActionListener {
 
 	private viewKitchenMenu viewKitchen = new viewKitchenMenu();
-	
+
 	private static ControlKitchen singletonInstance = null;
-	
-	
-	private ControlKitchen() { //Contructor privado para respetar el singleton
+
+	private ControlKitchen() { // Contructor privado para respetar el singleton
 		this.viewKitchen.btonPendingOrders.addActionListener(this);
 		this.viewKitchen.btnProcessOrder.addActionListener(this);
 		this.viewKitchen.btnBack.addActionListener(this);
 	}
-	
-	
-	public static ControlKitchen getControlKitchen(){
-		if(singletonInstance == null){
+
+	public static ControlKitchen getControlKitchen() {
+		if (singletonInstance == null) {
 			singletonInstance = new ControlKitchen();
 		}
-	    return singletonInstance;
-    }
-	   
-	
+		return singletonInstance;
+	}
+
 	public void StartApplication() {
 		try {
-			
+
 			viewKitchen.frmKitchen.setVisible(true);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
-	
 
 	public void startPrincipalMenu() {
 		ControlMenu menu = ControlMenu.getControlMenu();
@@ -49,27 +43,41 @@ public class ControlKitchen implements ActionListener{
 	}
 
 	public void startPendingOrders() {
-		
+
 		Request request = new Request();
 		ConsultasDAOImp consulta = new ConsultasDAOImp();
 		viewPendientes view = new viewPendientes();
 		controlConsultas control = new controlConsultas(request, consulta, view);
 		control.start();
 		view.frame.setVisible(true);
-		
+
 	}
+
+	public void startFinichedOrders() {
+
+		Request request = new Request();
+		ConsultasDAOImp consulta = new ConsultasDAOImp();
+		viewTerminado view = new viewTerminado();
+		controlConsultasTerminadas control = new controlConsultasTerminadas(request, consulta, view);
+		control.start();
+		view.frame.setVisible(true);
+
+	}
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		
-		if(e.getSource() == viewKitchen.btonPendingOrders) {
+
+		if (e.getSource() == viewKitchen.btonPendingOrders) {
 			viewKitchen.frmKitchen.dispose();
 			startPendingOrders();
-		}
-		else if(e.getSource() == viewKitchen.btnProcessOrder) {
 			
-		}
-		else if(e.getSource() == viewKitchen.btnBack) {
+		} else if (e.getSource() == viewKitchen.btnProcessOrder) {
+			viewKitchen.frmKitchen.dispose();
+			
+			startFinichedOrders();
+
+		} else if (e.getSource() == viewKitchen.btnBack) {
 			viewKitchen.frmKitchen.dispose();
 			startPrincipalMenu();
 		}
