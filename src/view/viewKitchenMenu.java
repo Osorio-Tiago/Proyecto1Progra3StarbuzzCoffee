@@ -8,14 +8,11 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 import java.awt.Dimension;
-
 import javax.swing.UIManager;
-
-import controller.ControlMenu;
-import model.MainStarbuzz;
-
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
+
+//Esta clase implementa los componentes necesarios para crear la vista de la cocina.
 
 public class viewKitchenMenu {
 
