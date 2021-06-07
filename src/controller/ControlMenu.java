@@ -19,6 +19,12 @@ public class ControlMenu implements ActionListener{
 	private ControlUsers controlUsers = null;
 	private viewMenu viewMenu = new viewMenu();
 	
+	/*
+	 * Se utilizó un singleton en el menu principal y en la cocina ya que son 2 ventanas a las que se accesa con mucha frecuencia,
+	 * después de varios debugs y pruebas se notó que las ventanas no se destruían del todo y habían problemas con el uso de la memoria
+	 * entonces se optó por el uso del singleton para evitar la creación nuevas instancias de las ventanas.
+	 * 
+	 */
 	private static ControlMenu singletonInstance = null;
 	
 	

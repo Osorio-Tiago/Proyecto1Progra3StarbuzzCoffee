@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.ListModel;
 import javax.swing.table.DefaultTableModel;
@@ -41,21 +42,21 @@ public class controlConsultas implements ActionListener {
 
 		view.frame.setTitle("Pendientes");
 		view.frame.setLocationRelativeTo(null);
-
-		
-
+		DBConsultOrders();
+	}
+	
+	
+	public void DBConsultOrders() {
 		List<Request> listRequest = new ArrayList<>();
 
 		listRequest = consultaImp.getRequest(request);
-
+		
+		
 		for (int i = 0; i < listRequest.size(); i++) {
 			view.listModel.addElement(listRequest.get(i).getIdRequest());
 			view.lista.setModel(view.listModel);
 		}
-
 	}
-	
-	
 	
 	public void startKitchenModule(){
 		ControlKitchen kitchen = ControlKitchen.getControlKitchen();
@@ -77,18 +78,17 @@ public class controlConsultas implements ActionListener {
 
 				view.textArea.setText(null);
 				for (int i = 0; i < listOrders.size(); i++) {
-					mensaje = "\n------------------\n" + listOrders.get(i).getDetail() + "\n"
+					mensaje = "\n------------------\n" + listOrders.get(i).getDetail() + "\n$"
 							+ listOrders.get(i).getCost() + mensaje;
 
 				}
-
 				view.textArea.setText(mensaje);
 
 				listOrders.clear();
 			}
 		}
 
-		if (e.getSource() == view.btnTerminado) {
+		else if (e.getSource() == view.btnTerminado) {
 			
 			int seleccion = (int) view.lista.getSelectedValue();
 			System.out.println(seleccion);

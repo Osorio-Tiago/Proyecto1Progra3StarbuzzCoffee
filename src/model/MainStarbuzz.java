@@ -13,7 +13,5 @@ public class MainStarbuzz {
 		ControlLogin controlLogin = new ControlLogin(usuario, log, view);
 		controlLogin.start();
 		view.frmLogin.setVisible(true);
-		
-		//System.out.println("Test ");
 	}
 }

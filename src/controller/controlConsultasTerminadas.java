@@ -77,7 +77,7 @@ public class controlConsultasTerminadas implements ActionListener {
 
 				view.textArea.setText(null);
 				for (int i = 0; i < listOrders.size(); i++) {
-					mensaje = "\n------------------\n" + listOrders.get(i).getDetail() + "\n"
+					mensaje = "\n------------------\n" + listOrders.get(i).getDetail() + "\n$"
 							+ listOrders.get(i).getCost() + mensaje;
 
 				}

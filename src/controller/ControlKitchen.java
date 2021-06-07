@@ -53,7 +53,7 @@ public class ControlKitchen implements ActionListener {
 
 	}
 
-	public void startFinichedOrders() {
+	public void startFinishedOrders() {
 
 		Request request = new Request();
 		ConsultasDAOImp consulta = new ConsultasDAOImp();
@@ -61,7 +61,6 @@ public class ControlKitchen implements ActionListener {
 		controlConsultasTerminadas control = new controlConsultasTerminadas(request, consulta, view);
 		control.start();
 		view.frame.setVisible(true);
-
 	}
 
 	@Override
@@ -75,7 +74,7 @@ public class ControlKitchen implements ActionListener {
 		} else if (e.getSource() == viewKitchen.btnProcessOrder) {
 			viewKitchen.frmKitchen.dispose();
 			
-			startFinichedOrders();
+			startFinishedOrders();
 
 		} else if (e.getSource() == viewKitchen.btnBack) {
 			viewKitchen.frmKitchen.dispose();

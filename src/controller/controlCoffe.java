@@ -329,13 +329,13 @@ public class controlCoffe implements ActionListener, MouseListener {
 				costRequest = listOrders.get(i).getCost() + costRequest;
 				
 				
-				mensaje ="\n------------------\n" +listOrders.get(i).getDetail() + "\n"+ listOrders.get(i).getCost() + mensaje;
+				mensaje ="\n------------------\n" +listOrders.get(i).getDetail() + "\n$"+ listOrders.get(i).getCost() + mensaje;
 				viewCoffes.textOrder.setText(mensaje);
 				
 				
 			}
 			
-			viewCoffes.textOrder.setText("=======INVOICE======="+ mensaje +"\n" +"\nTOTAL: \n" + costRequest);
+			viewCoffes.textOrder.setText("=======INVOICE======="+ mensaje +"\n" +"\nTOTAL: \n$" + costRequest);
 			
 			modelRequest.setTotalDetail(detalleRequest);
 			modelRequest.setTotalCost(costRequest);
