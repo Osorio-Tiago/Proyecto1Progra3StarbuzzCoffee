@@ -3,19 +3,16 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-
-import javax.swing.JOptionPane;
-import javax.swing.ListModel;
-import javax.swing.table.DefaultTableModel;
-
 import model.ConsultasDAOImp;
 import model.Order;
 import model.Request;
-import view.viewPendientes;
 import view.viewTerminado;
 
+/*
+ * Esta clase controlConsultasTerminadas, se encarga de gestionar los procesos lógicos
+ *  y adicionalmente  maneja los eventos que están relacionados con las consultas terminadas.
+ * */
 public class controlConsultasTerminadas implements ActionListener {
 
 	private Request request;
@@ -36,7 +33,8 @@ public class controlConsultasTerminadas implements ActionListener {
 		this.view.btnConsultar.addActionListener(this);
 		this.view.btnBack.addActionListener(this);
 	}
-
+	
+    //Muestra las órdenes que han sido procesadas.
 	public void start() {
 
 		view.frame.setTitle("Ordenes Procesadas");
@@ -62,6 +60,7 @@ public class controlConsultasTerminadas implements ActionListener {
 		kitchen.StartApplication();
 	}
 
+	//A la hora de hacer click en el botón consultar, se muestra la lista de órdenes.
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
