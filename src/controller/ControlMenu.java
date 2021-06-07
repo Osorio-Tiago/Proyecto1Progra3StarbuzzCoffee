@@ -5,6 +5,7 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JOptionPane;
 
 import model.Coffe;
 import model.MainStarbuzz;
@@ -76,6 +77,13 @@ public class ControlMenu implements ActionListener{
 		view.frmStarbuzzCoffee.setVisible(true);
 		
 	}
+	
+	public void startKitchenModule() {
+		
+		
+		ControlKitchen menuKitchen = ControlKitchen.getControlMenu();
+		menuKitchen.StartApplication();
+	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
@@ -89,7 +97,8 @@ public class ControlMenu implements ActionListener{
 		startViewUsers();
 		}
 		else if(e.getSource() == viewMenu.btnProcessOrder) {
-			
+			viewMenu.frmStarbuzzCoffee.dispose();
+			startKitchenModule();
 		}
 		else if(e.getSource() == viewMenu.btonOrderModule) {
 			viewMenu.frmStarbuzzCoffee.dispose();

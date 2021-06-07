@@ -72,8 +72,7 @@ public class ViewOrderModule {
 	 */
 	public ViewOrderModule() {
 		initialize();
-		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-		frmStarbuzzCoffee.setLocation(dim.width/2-frmStarbuzzCoffee.getSize().width/2, dim.height/2-frmStarbuzzCoffee.getSize().height/2);
+		
 	}
 
 	/**
@@ -90,7 +89,12 @@ public class ViewOrderModule {
 		frmStarbuzzCoffee.setBounds(100, 100, 933, 411);
 		frmStarbuzzCoffee.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmStarbuzzCoffee.getContentPane().setLayout(null);
-
+		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+		frmStarbuzzCoffee.setLocation(dim.width/2-frmStarbuzzCoffee.getSize().width/2, dim.height/2-frmStarbuzzCoffee.getSize().height/2);
+		
+		
+		
+		
 		JLabel lbTypeCoffe = new JLabel("Coffee base:");
 		lbTypeCoffe.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lbTypeCoffe.setBounds(27, 27, 118, 30);
