@@ -3,35 +3,25 @@ package view;
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-
-import java.awt.EventQueue;
 import java.awt.Font;
 import javax.swing.JComboBox;
 import javax.swing.JRadioButton;
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.UIManager;
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Dimension;
-
-import javax.swing.Box;
 import java.awt.Toolkit;
-import java.awt.SystemColor;
-import java.awt.Label;
-import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.EnumSet;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import java.awt.event.ActionEvent;
 
+//Esta clase implementa los componentes necesarios para crear la ventana vinculado al módulo de órdenes.
 public class ViewOrderModule {
 
 	public JFrame frmStarbuzzCoffee;
@@ -72,7 +62,8 @@ public class ViewOrderModule {
 	 */
 	public ViewOrderModule() {
 		initialize();
-		
+		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+		frmStarbuzzCoffee.setLocation(dim.width/2-frmStarbuzzCoffee.getSize().width/2, dim.height/2-frmStarbuzzCoffee.getSize().height/2);
 	}
 
 	/**
@@ -89,12 +80,7 @@ public class ViewOrderModule {
 		frmStarbuzzCoffee.setBounds(100, 100, 933, 411);
 		frmStarbuzzCoffee.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmStarbuzzCoffee.getContentPane().setLayout(null);
-		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-		frmStarbuzzCoffee.setLocation(dim.width/2-frmStarbuzzCoffee.getSize().width/2, dim.height/2-frmStarbuzzCoffee.getSize().height/2);
-		
-		
-		
-		
+
 		JLabel lbTypeCoffe = new JLabel("Coffee base:");
 		lbTypeCoffe.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lbTypeCoffe.setBounds(27, 27, 118, 30);

@@ -7,24 +7,28 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+//La clase ConsultasDaoImp implementa los métodos de ConsultasDAO, con el objetivo principal
+//de manejar acciones distintas en el área de cocina.
+
 public class ConsultasDAOImp extends Database implements ConsultasDAO {
 
 	List<Request> listRequest = new ArrayList<>();
 	List<Order> listOrders = new ArrayList<>();
-
+	
+   //Permite tener una cuenta de las órdenes que se encuentran pendientes en la cocina.
 	@Override
 	public ArrayList<Order> readPendientes(int num) {
 	
 
 		Order order = new Order();
 
-		PreparedStatement ps = null;
-		Connection con = getConexion();
+		PreparedStatement ps = null; 
+		Connection con = getConexion(); //Establece conexión con la base de datos
 		ResultSet rs = null;
 
 		String sql = "SELECT * FROM orden WHERE idPedido=? ";
 
-		try {
+		try { //Permite obtener información del detalle, costo y estado de una orden.
 
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, num);
@@ -42,10 +46,10 @@ public class ConsultasDAOImp extends Database implements ConsultasDAO {
 				
 			}
 
-		} catch (SQLException e) {
+		} catch (SQLException e) { //En caso de de que no se puedan leer los datos, se manda un excepción
 			System.err.println("Error trying to read the DATA" + e);
 			
-		} finally { // Este proceso es para finalizar la conexion
+		} finally { // Este proceso es para finalizar la conexión.
 			try {
 				con.close();
 			} catch (SQLException e2) {
@@ -66,7 +70,7 @@ public class ConsultasDAOImp extends Database implements ConsultasDAO {
 		// TODO Auto-generated method stub
 		return false;
 	}
-
+    //Retorna el número de ordenes pendientes.
 	@Override
 	public int getNumberPendiantes() {
 		PreparedStatement ps = null;
@@ -92,7 +96,7 @@ public class ConsultasDAOImp extends Database implements ConsultasDAO {
 		} catch (SQLException e) {
 			System.err.println("Error trying to read the DATA" + e);
 
-		} finally { // Este proceso es para finalizar la conexion
+		} finally { // Este proceso es para finalizar la conexión
 			try {
 				con.close();
 			} catch (SQLException e2) {
@@ -103,7 +107,7 @@ public class ConsultasDAOImp extends Database implements ConsultasDAO {
 	}
 
 
-
+    //Permite obtener un pedido específico de una lista de pedidos.
 	@Override
 	public ArrayList<Request> getRequest(Request request) {
 		PreparedStatement ps = null;
@@ -119,9 +123,9 @@ public class ConsultasDAOImp extends Database implements ConsultasDAO {
 
 			while(rs.next()){
 				request.setIdRequest((rs.getInt("idPedido")));
-				//System.out.println(request.getIdRequest());
+				
 				listRequest.add(new Request(request.getIdRequest(), request.getTotalDetail(), request.getTotalStatus(), request.getTotalCost()));
-				//listOrders.add(new Order(modelOrder.getDetail(), modelOrder.getCost(), modelOrder.getStatus()));
+				
 			}
 			
 
@@ -144,7 +148,7 @@ public class ConsultasDAOImp extends Database implements ConsultasDAO {
 	}
 
 
-
+   //Permite cambiar el estado de pedido de pendiente a listo.
 	@Override
 	public boolean setEstadoPendientes(Request request) {
 		PreparedStatement ps = null;

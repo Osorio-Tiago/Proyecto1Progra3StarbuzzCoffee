@@ -2,6 +2,7 @@ package model;
 
 import java.util.ArrayList;
 
+//Esta clase permite obtener la lista de pedidos pendientes y listos que se encuentran en la base de datos.
 public interface ConsultasDAO {
 
 	public ArrayList<Order> readPendientes(int num);
