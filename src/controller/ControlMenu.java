@@ -79,8 +79,7 @@ public class ControlMenu implements ActionListener{
 	
 	public void startKitchenModule() {
 		
-		
-		ControlKitchen menuKitchen = ControlKitchen.getControlMenu();
+		ControlKitchen menuKitchen = ControlKitchen.getControlKitchen();
 		menuKitchen.StartApplication();
 	}
 	@Override

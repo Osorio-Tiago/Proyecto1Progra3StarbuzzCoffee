@@ -23,7 +23,7 @@ public class ControlKitchen implements ActionListener{
 	}
 	
 	
-	public static ControlKitchen getControlMenu(){
+	public static ControlKitchen getControlKitchen(){
 		if(singletonInstance == null){
 			singletonInstance = new ControlKitchen();
 		}

@@ -269,7 +269,7 @@ public class controlCoffe implements ActionListener, MouseListener {
 				modelOrder.setId(id);
 				modelOrder.setDetail(coffeeB.getDescription());
 				modelOrder.setCost(coffeeB.cost());
-				modelOrder.setStatus("Recibiendo");
+				modelOrder.setStatus("Pendiente");
 
 				setJRadioF();
 	//			orderImp.update(modelOrder);
@@ -312,9 +312,10 @@ public class controlCoffe implements ActionListener, MouseListener {
 			if (viewCoffes.tblModel == null) {
 				JOptionPane.showMessageDialog(null, "The table is empty","Error!", JOptionPane.ERROR_MESSAGE); 
 			}else {
+			mensaje = "";
 			modelRequest.setTotalDetail(null);
 			modelRequest.setTotalCost(0);
-			modelRequest.setTotalStatus("Recibiendo");
+			modelRequest.setTotalStatus("Pendiente");
 			
 			requestImp.create(modelRequest);
 			
@@ -339,7 +340,7 @@ public class controlCoffe implements ActionListener, MouseListener {
 			modelRequest.setTotalDetail(detalleRequest);
 			modelRequest.setTotalCost(costRequest);
 			requestImp.update(modelRequest);
-			
+			costRequest = 0;
 			
 			if (viewCoffes.tblModel.getRowCount() == 0) {
 				JOptionPane.showMessageDialog(null, "The table is empty","Error!", JOptionPane.ERROR_MESSAGE);
@@ -364,6 +365,7 @@ public class controlCoffe implements ActionListener, MouseListener {
 				viewCoffes.comboBox.setSelectedItem(-1);
 				setJRadioF(); 
 				a = 0;
+				
 			}
 
 			listOrders.clear();

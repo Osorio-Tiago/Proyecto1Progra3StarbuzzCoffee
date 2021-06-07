@@ -52,8 +52,6 @@ public class ConsultasDAOImp extends Database implements ConsultasDAO {
 				System.err.println("Error trying to read the DATA" + e2);
 			}
 		}
-
-
 		
 		return (ArrayList<Order>) listOrders;
 		
@@ -124,8 +122,6 @@ public class ConsultasDAOImp extends Database implements ConsultasDAO {
 				//listOrders.add(new Order(modelOrder.getDetail(), modelOrder.getCost(), modelOrder.getStatus()));
 			}
 			
-
-			
 			
 		} catch (SQLException e) {
 			System.err.println("Error trying to read the DATA" + e);
@@ -171,16 +167,5 @@ public class ConsultasDAOImp extends Database implements ConsultasDAO {
 			}
 		}
 	}
-
-
-
-
-
-
-
-
-
-
-
-
+	
 }

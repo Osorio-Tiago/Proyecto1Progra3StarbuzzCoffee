@@ -24,12 +24,14 @@ import javax.swing.UIManager;
 public class viewPendientes {
 
 	public JFrame frame;
-	public JList<Object> lista;
+	public JList lista;
 	public JButton btnConsultar;
-	public DefaultListModel<Object> listModel;
+	public DefaultListModel listModel;
 	public DefaultTableModel tblPendientes;
 	public JTextArea textArea;
 	public JButton btnTerminado;
+	public JButton btnBack;
+	private JScrollPane scrollPane_1;
 	
 	
 	
@@ -61,10 +63,14 @@ public class viewPendientes {
 		
 		
 	
-		
-		lista = new JList<Object>();
+		scrollPane_1 = new JScrollPane();
+		scrollPane_1.setBounds(26, 11, 148, 318);
+		frame.getContentPane().add(scrollPane_1);
+		lista = new JList<>();
 		lista.setBounds(26, 11, 148, 318);
-		frame.getContentPane().add(lista);
+		//frame.getContentPane().add(lista);
+		scrollPane_1.setViewportView(lista);
+		
 		
 		btnConsultar = new JButton("View Order");
 		btnConsultar.setBorder(UIManager.getBorder("Button.border"));
@@ -94,6 +100,16 @@ public class viewPendientes {
 		lblIconCoffeeMaker.setBounds(220, 72, 70, 116);
 		frame.getContentPane().add(lblIconCoffeeMaker);
 		
-		listModel = new DefaultListModel<Object>();
+		btnBack = new JButton("Back");
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnBack.setBorder(UIManager.getBorder("Button.border"));
+		btnBack.setBackground(Color.LIGHT_GRAY);
+		btnBack.setBounds(465, 351, 111, 23);
+		frame.getContentPane().add(btnBack);
+		
+		listModel = new DefaultListModel<>();
 	}
 }

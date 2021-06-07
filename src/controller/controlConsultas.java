@@ -34,6 +34,7 @@ public class controlConsultas implements ActionListener {
 		this.view = view;
 		this.view.btnConsultar.addActionListener(this);
 		this.view.btnTerminado.addActionListener(this);
+		this.view.btnBack.addActionListener(this);
 	}
 
 	public void start() {
@@ -48,11 +49,17 @@ public class controlConsultas implements ActionListener {
 		listRequest = consultaImp.getRequest(request);
 
 		for (int i = 0; i < listRequest.size(); i++) {
-
 			view.listModel.addElement(listRequest.get(i).getIdRequest());
 			view.lista.setModel(view.listModel);
 		}
 
+	}
+	
+	
+	
+	public void startKitchenModule(){
+		ControlKitchen kitchen = ControlKitchen.getControlKitchen();
+		kitchen.StartApplication();
 	}
 
 	@Override
@@ -88,6 +95,13 @@ public class controlConsultas implements ActionListener {
 			request.setIdRequest(seleccion);
 			request.setTotalStatus("Terminado");
 			consultaImp.setEstadoPendientes(request);
+			JOptionPane.showMessageDialog(null, "Order up!", "Ready", JOptionPane.INFORMATION_MESSAGE);
+			
+		}
+		
+		else if (e.getSource() == view.btnBack) {
+			view.frame.dispose();
+			startKitchenModule();
 		}
 
 	}
