@@ -42,7 +42,7 @@ public class controlConsultas implements ActionListener {
 		view.frame.setTitle("Pendientes");
 		view.frame.setLocationRelativeTo(null);
 
-		consultaImp.getRequest(request);
+		
 
 		List<Request> listRequest = new ArrayList<>();
 
