@@ -26,6 +26,7 @@ import coffees.*;
  * 
  * */
 
+
 public class controlCoffe implements ActionListener, MouseListener {
 
 	private ViewOrderModule viewCoffes;
@@ -288,9 +289,7 @@ public class controlCoffe implements ActionListener, MouseListener {
 				int row = viewCoffes.table.getSelectedRow();
 				System.out.println(viewCoffes.tblModel.getValueAt(row, 0).toString());
 				
-				int id = Integer.parseInt(viewCoffes.tblModel.getValueAt(row, 0).toString());
-				
-				listOrders.remove(id);//Remueve de la lista
+				listOrders.remove(row);//Remueve de la lista
 				a--;
 				viewCoffes.tblModel.removeRow(viewCoffes.table.getSelectedRow());
 				setJRadioF();
