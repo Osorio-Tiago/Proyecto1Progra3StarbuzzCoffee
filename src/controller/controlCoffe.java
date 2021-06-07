@@ -87,8 +87,7 @@ public class controlCoffe implements ActionListener, MouseListener {
 		viewCoffes.rdSoy.setSelected(false);
 		viewCoffes.rdMocha.setSelected(false);
 		viewCoffes.rdSteamed.setSelected(false);
-		viewCoffes.rdWhipped.setSelected(false);
-
+		viewCoffes.rdWhipped.setSelected(true);
 	}
 
 	

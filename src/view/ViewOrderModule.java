@@ -124,6 +124,7 @@ public class ViewOrderModule {
 		frmStarbuzzCoffee.getContentPane().add(rdSteamed);
 
 		rdWhipped = new JRadioButton("Whipped Milk");
+		rdWhipped.setSelected(true);
 		rdWhipped.setBorder(UIManager.getBorder("CheckBoxMenuItem.border"));
 		rdWhipped.setBackground(Color.PINK);
 		rdWhipped.setBounds(508, 112, 109, 23);
