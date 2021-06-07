@@ -6,8 +6,7 @@ package coffees;
 //createBeverage() para agregar ingredientes posteriormente.
 
 public interface IBeverage {
-	
-	public double cost();
-	public String createBeverage();
-	
+
+	public String getDescription();
+	public abstract double cost();
 }

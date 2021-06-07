@@ -1,7 +1,5 @@
 package controller;
 
-
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -62,6 +60,7 @@ public class ControlMenu implements ActionListener{
 		MainStarbuzz.main(null);
 	}
 
+	//Da inicio al módulo de órdenes.
 	public void startOrderModule() {
 		
 		Coffe cafe = new Coffe();

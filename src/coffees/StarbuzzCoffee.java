@@ -1,4 +1,4 @@
-package coffes;
+package coffees;
 
 public class StarbuzzCoffee {
 	 

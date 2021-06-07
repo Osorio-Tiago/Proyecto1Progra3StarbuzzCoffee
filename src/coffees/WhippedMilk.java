@@ -3,19 +3,18 @@ package coffees;
 //Clase que representa uno de los ingredientes adicionales que se le pueden
 //agregar a la bebida. Es uno de los decoradores concretos que heredan de
 //BeverageDecorator.
+public class WhippedMilk extends CondimentDecorator {
 
-public class WhippedMilk extends BeverageDecorator{
+	public WhippedMilk(IBeverage coffee) {
+		super(coffee);
+	}
+
+	public String getDescription() {
+		return super.getDescription() + " WhippedMilk "; 
+	}
 	
-	 public  WhippedMilk(IBeverage beverage) {
-	        super(beverage);
-	 }
-	 
-	 //No tiene costo adicional
-	 public double cost(){
-	        return super.cost() + 0.0;
-	 }
-	    
-	 public String createBeverage(){
-	        return super.createBeverage() + "\nWhipped Milk: No additional cost-";
-	 }
+	//Este método le suma al precio base de la bebida el costo del ingrediente adicional.
+	public double cost() {
+		return 0 + coffee.cost();
+	}
 }
