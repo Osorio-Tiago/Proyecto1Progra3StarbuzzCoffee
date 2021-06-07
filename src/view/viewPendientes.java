@@ -30,8 +30,6 @@ public class viewPendientes {
 	private JScrollPane scrollPane_1;
 	
 	
-	
-	
 	/**
 	 * Create the application.
 	 */
