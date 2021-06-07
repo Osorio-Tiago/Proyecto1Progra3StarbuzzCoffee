@@ -2,9 +2,6 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import javax.swing.JOptionPane;
-
 import model.Coffe;
 import model.MainStarbuzz;
 import model.Order;
@@ -13,6 +10,9 @@ import model.Request;
 import model.RequestDAOImp;
 import view.ViewOrderModule;
 import view.viewMenu;
+
+//Esta clase maneja los eventos que conllevan los distintos botones que forman parte del menu principal
+//de la aplicación.
 
 public class ControlMenu implements ActionListener{
 
@@ -82,6 +82,8 @@ public class ControlMenu implements ActionListener{
 		ControlKitchen menuKitchen = ControlKitchen.getControlKitchen();
 		menuKitchen.StartApplication();
 	}
+	
+	//Según el botón que se presione, se generan distintas acciones.
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
