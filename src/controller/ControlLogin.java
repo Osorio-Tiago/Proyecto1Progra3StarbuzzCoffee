@@ -1,16 +1,9 @@
 package controller;
-
-import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.FocusEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.awt.event.KeyAdapter;
-
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
-
 import model.Login;
 import model.User;
 import model.UserDAOImp;
@@ -32,7 +25,7 @@ public class ControlLogin implements ActionListener, KeyListener{
 	UserDAOImp crud = new UserDAOImp();
 	viewUsers viewUsers = new viewUsers();
 	
-	
+	//Se inicializan los componentes necesarios para el funcionamiento adecuado
 	public ControlLogin(User modelo, Login log, viewLogin view) {
 
 		this.modeloLogin = modelo;
@@ -56,6 +49,7 @@ public class ControlLogin implements ActionListener, KeyListener{
 	//Este método se encarga de comparar si los datos ingresados
 	//corresponden a usarios válidos, o si por lo contrario, los datos
 	//no coinciden con la información registrada en la base de datos.
+	//Si es correcto permite ingresar al programa, y en caso contrario no deja ingresar.
 
 	public void queryLogin() {
 		modeloLogin.setUser(viewLogin.textUser.getText());
@@ -79,13 +73,16 @@ public class ControlLogin implements ActionListener, KeyListener{
 	}
 	
 	
+	//Botón de Login que llama el método anterior.
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == viewLogin.btnLogin) {
 			queryLogin();
 		}
 	}
-
+	
+	
+//**
 	@Override
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub

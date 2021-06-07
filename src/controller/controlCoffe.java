@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-import coffes.*;
+import coffees.*;
 
 /*
  * 1 - Esta clase controlador se encarga de gestionar los procesos logicos y contiene los controles de las vistas....
@@ -37,8 +37,15 @@ public class controlCoffe implements ActionListener, MouseListener {
 
 	private Request modelRequest;
 	private RequestDAOImp requestImp;
+	IBeverage coffeeB = null;
+	ArrayList<Order> listOrders = new ArrayList<Order>();
+	String detalleRequest = "";
+	double costRequest = 0;
+	String mensaje = "";
+	int a=0;
 	
- 
+	
+   //Se inicializan los componentes necesarios para el funcionamiento adecuado.
 	public controlCoffe(Coffe modelCoffe, view.ViewOrderModule viewCoffes, Order modelOrder,
 			OrderDAOImp orderImp, Request modelRequest, RequestDAOImp requestImp) {
 
@@ -65,21 +72,17 @@ public class controlCoffe implements ActionListener, MouseListener {
 		
 	}
 
-	
+	//
 	public void start() {
 
-		viewCoffes.frmStarbuzzCoffee.setTitle("Coffes");
+		viewCoffes.frmStarbuzzCoffee.setTitle("Coffees");
 		viewCoffes.frmStarbuzzCoffee.setLocationRelativeTo(null);
 	}
 
-	IBeverage coffeeB = null;
-	ArrayList<Order> listOrders = new ArrayList<Order>();
-	String detalleRequest = "";
-	double costRequest = 0;
-	String mensaje = "";
-	int a=0;
 	
 	
+	
+	//Permite desmarcar los ingredientes a la hora de decorar la bebida.
 	public void setJRadioF() {
 		viewCoffes.rdSoy.setSelected(false);
 		viewCoffes.rdMocha.setSelected(false);
@@ -185,7 +188,7 @@ public class controlCoffe implements ActionListener, MouseListener {
 
 		}
 
-
+        //Permite actualizar los datos a la hora de preparar una bebida.
 
 		else if (e.getSource() == viewCoffes.btnUpdate) {
 
@@ -220,7 +223,8 @@ public class controlCoffe implements ActionListener, MouseListener {
 					break;
 				}
 				}
-
+                // En caso de eliminar un ingrediente, pasa de estado "YES" a "NO", o también
+				//funciona a la inversa.
 				if (viewCoffes.rdSoy.isSelected()) {
 					modelCoffe.setSoya("YES");// modelCoffe
 					coffeeB = new Soy(coffeeB);
@@ -276,6 +280,7 @@ public class controlCoffe implements ActionListener, MouseListener {
 			}
 		}
 		
+		//Permite quitar de la tabla una bebida previamente ingresada.
 		else if (e.getSource() == viewCoffes.btnDelete) {
 
 			viewCoffes.tblModel = (DefaultTableModel) viewCoffes.table.getModel();
@@ -286,7 +291,7 @@ public class controlCoffe implements ActionListener, MouseListener {
 				
 				int id = Integer.parseInt(viewCoffes.tblModel.getValueAt(row, 0).toString());
 				
-				listOrders.remove(id);
+				listOrders.remove(id);//Remueve de la lista
 				a--;
 				viewCoffes.tblModel.removeRow(viewCoffes.table.getSelectedRow());
 				setJRadioF();
@@ -313,7 +318,8 @@ public class controlCoffe implements ActionListener, MouseListener {
 			
 			requestImp.create(modelRequest);
 			
-			
+			//Calcula el precio total de datos y se envarga de mostrar los datos en la factura.
+			//Adicionalmente se manda la información a la base de datos.
 			for (int i = 0; i < listOrders.size(); i++) {
 				
 				orderImp.create(listOrders.get(i), modelRequest);
@@ -373,6 +379,9 @@ public class controlCoffe implements ActionListener, MouseListener {
 		
 	}
 
+	
+	//Permite modificar una orden específica de bebidad, ya sea agregando o eliminando
+	//ingredientes a la bebida base-
 	@Override
 	public void mouseClicked(MouseEvent e) {
 

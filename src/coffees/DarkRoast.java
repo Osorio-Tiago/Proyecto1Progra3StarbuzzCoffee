@@ -5,19 +5,22 @@ package coffees;
 
 public class DarkRoast implements IBeverage {
 	
-	public DarkRoast() {
-	        
-	}
-
-
+    public DarkRoast() {
+        
+    }
+	
 	@Override
+	public String getDescription() {
+		// TODO Auto-generated method stub
+		return "Dark Roast Coffee: ";
+	}
+	
 	public double cost() {
 		return 2;
 	}
-
-	@Override
-	public String createBeverage() {
-		return "Dark Roast Coffee -> $2";
-	}
+	   public String toString() 
+	    {
+	        return "Descripton: "+getDescription()+" - Cost:"+cost();
+	      }
 
 }

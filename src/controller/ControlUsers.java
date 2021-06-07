@@ -1,13 +1,18 @@
 package controller;
 
 import java.awt.event.ActionEvent;
+
 import java.awt.event.ActionListener;
-
 import javax.swing.JOptionPane;
-
 import model.User;
 import model.UserDAOImp;
 import view.viewUsers;
+
+/*
+ * Esta clase controlador se encarga de gestionar los procesos lógicos
+ *  y contiene los controles de la clase Usuarios y adicionalmente gestiona los eventos
+ * que están vinculados a algún componente de la vista.
+ * */
 
 public class ControlUsers implements ActionListener {
 
@@ -36,8 +41,11 @@ public class ControlUsers implements ActionListener {
 	}
 
 	@Override
+	//Este método permite crear, eliminar o actualizar un usuario.
 	public void actionPerformed(ActionEvent e) {
-
+		
+        //Al botón de crear se le asigna el evento que permite crear nuevos usuarios para
+		//ser ingresados a la base de datos.
 		if (e.getSource() == view.btnCreate) {
 
 			modelo.setId(Integer.parseInt(view.textId.getText()));
@@ -55,6 +63,8 @@ public class ControlUsers implements ActionListener {
 
 		}
 
+		//Al botón de actualizar se le asigna el evento que permite modificar información que ya 
+		//estaba previamente registrada en la base de datos.
 		if (e.getSource() == view.btnUpdate) {
 
 			modelo.setId(Integer.parseInt(view.textId.getText()));
@@ -72,7 +82,8 @@ public class ControlUsers implements ActionListener {
 
 		}
 		
-		
+		//Al botón de borrar  permite eliminar de la base de datos los usuarios previamente
+		//registrados.
 		if (e.getSource() == view.btnDelete) {
 
 			modelo.setId(Integer.parseInt(view.textId.getText()));
@@ -87,6 +98,8 @@ public class ControlUsers implements ActionListener {
 
 		}
 		
+		//En esta parte del código se creae una función que permite leer los datos que se 
+		//encuentran en la base de datos.
 		if (e.getSource() == view.btnRead) {
 
 			modelo.setId(Integer.parseInt(view.textId.getText()));
@@ -113,6 +126,7 @@ public class ControlUsers implements ActionListener {
 		
 	}
 
+	//Limpia completamente la información del usuario.
 	public void clean() {
 		view.textId.setText(null);
 		view.textName.setText(null);
