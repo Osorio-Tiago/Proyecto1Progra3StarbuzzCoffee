@@ -1,5 +1,9 @@
 package controller;
 
+/*
+ * Esta clase controlConsultas se encarga de gestionar los procesos lógicos
+ *  y adicionalmente  maneja los eventos que están relacionados con las consultas en la cocina.
+ * */
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -36,7 +40,8 @@ public class controlConsultas implements ActionListener {
 		this.view.btnTerminado.addActionListener(this);
 		this.view.btnBack.addActionListener(this);
 	}
-
+    
+	
 	public void start() {
 
 		view.frame.setTitle("Pendientes");
@@ -46,10 +51,10 @@ public class controlConsultas implements ActionListener {
 
 		List<Request> listRequest = new ArrayList<>();
 
-		listRequest = consultaImp.getRequest(request);
+		listRequest = consultaImp.getRequest(request); //Se realiza una consulta sobre los pedidos.
 
 		for (int i = 0; i < listRequest.size(); i++) {
-			view.listModel.addElement(listRequest.get(i).getIdRequest());
+			view.listModel.addElement(listRequest.get(i).getIdRequest()); //Se muestran los pedidos pendientes.
 			view.lista.setModel(view.listModel);
 		}
 
@@ -61,7 +66,8 @@ public class controlConsultas implements ActionListener {
 		ControlKitchen kitchen = ControlKitchen.getControlKitchen();
 		kitchen.StartApplication();
 	}
-
+	
+    //Permire consultar las órdenes de los pedidos pendientes.
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
@@ -87,7 +93,9 @@ public class controlConsultas implements ActionListener {
 				listOrders.clear();
 			}
 		}
-
+		
+        //Esta parte del código se relaciona al evento que procede si se da click al botón terminado.
+		//El cual cambia el estado del pedido de pendiente a listo, y muestra que la orden está lista.
 		if (e.getSource() == view.btnTerminado) {
 			
 			int seleccion = (int) view.lista.getSelectedValue();
@@ -99,6 +107,7 @@ public class controlConsultas implements ActionListener {
 			
 		}
 		
+		//Se devuelve al menu principal.
 		else if (e.getSource() == view.btnBack) {
 			view.frame.dispose();
 			startKitchenModule();

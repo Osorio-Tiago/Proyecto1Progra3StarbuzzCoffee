@@ -8,6 +8,7 @@ import view.viewKitchenMenu;
 import view.viewPendientes;
 import view.viewTerminado;
 
+//Esta clase maneja las acciones vinculadas a la cocina.
 public class ControlKitchen implements ActionListener {
 
 	private viewKitchenMenu viewKitchen = new viewKitchenMenu();
